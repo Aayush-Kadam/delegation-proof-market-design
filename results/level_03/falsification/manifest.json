@@ -1,0 +1,14 @@
+{
+  "experiment_id": "L3_FALSIFICATION_C3",
+  "protocol_hash": "94dcd343a5ac18faa3ebedcbd494a11a574dd236c58351c1a20ba6d57af7f438",
+  "grid_hash": "0a1ae15ccff2ba9cf1d60885359c8f5812c7bb6f2c628de9a8bf45dad95f65a2",
+  "git_commit": "aa1cbbdefb664ea3abf58167f8eecd0d050eaaf2",
+  "timestamp": "2026-09-15T16:28:09.806383+00:00",
+  "conditions": 800,
+  "seeds_per_case": 50,
+  "logical_rounds": 9000000,
+  "runtime_seconds": 228.59543029998895,
+  "workers": 12,
+  "python": "3.12.14",
+  "result_path": "C:\\Users\\AAYUSH\\Documents\\Codex\\2026-09-15\\files-mentioned-by-the-user-master\\outputs\\delegation-proof-market-design\\results\\level_03\\falsification\\seed_results.csv"
+}
