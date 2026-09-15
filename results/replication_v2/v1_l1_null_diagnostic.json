@@ -1,0 +1,40 @@
+{
+  "design": "prospective null; no R-REP-002 outcomes used to select policies or threshold",
+  "threshold_l1": 0.1,
+  "sample_size": 5000,
+  "repetitions": 20000,
+  "policies": {
+    "uniform_K51": {
+      "mean": 0.11287312000000002,
+      "q025": 0.08960000000000001,
+      "q50": 0.11240000000000003,
+      "q95": 0.13319999999999999,
+      "q975": 0.13720000000000002,
+      "false_rejection_rate": 0.8556
+    },
+    "smooth_triangular_K51": {
+      "mean": 0.10661446000000001,
+      "q025": 0.08399999999999999,
+      "q50": 0.10639999999999997,
+      "q95": 0.12680000000000002,
+      "q975": 0.13119999999999998,
+      "false_rejection_rate": 0.70025
+    },
+    "uniform_K101": {
+      "mean": 0.15931362,
+      "q025": 0.136,
+      "q50": 0.15919999999999998,
+      "q95": 0.1796,
+      "q975": 0.18360000000000004,
+      "false_rejection_rate": 1.0
+    },
+    "smooth_triangular_K101": {
+      "mean": 0.15023358,
+      "q025": 0.1272,
+      "q50": 0.15,
+      "q95": 0.1708,
+      "q975": 0.17479999999999998,
+      "false_rejection_rate": 1.0
+    }
+  }
+}
