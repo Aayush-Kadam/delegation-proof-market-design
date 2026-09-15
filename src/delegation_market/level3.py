@@ -66,7 +66,22 @@ def execute(root:Path, grid_path:Path, protocol_hash:str, git_commit:str, worker
     (out/"manifest.json").write_text(json.dumps(manifest,indent=2),encoding="utf-8"); print(json.dumps(manifest,indent=2))
 
 
+def execute_falsification(root:Path, grid_path:Path, protocol_hash:str, git_commit:str, workers=12):
+    grid=json.loads(grid_path.read_text(encoding="utf-8")); seeds=range(grid["seeds"]["start"],grid["seeds"]["start"]+grid["seeds"]["count"]); tasks=[]; labels=[]
+    for case in grid["cases"]:
+      for mechanism in grid["mechanisms"]:
+       for seed in seeds:
+        tasks.append((mechanism,case["v_low"],case["horizon"],case["c_high"],case["c_low"],seed,case["step"],case["tail_share"])); labels.append(case["case"])
+    started=time.perf_counter()
+    with ProcessPoolExecutor(max_workers=workers) as pool: rows=list(pool.map(_task,tasks,chunksize=1))
+    for row,label in zip(rows,labels): row["falsification_case"]=label
+    frame=pd.DataFrame(rows); frame.insert(0,"experiment_id",grid["name"]); frame.insert(1,"protocol_hash",protocol_hash); frame.insert(2,"git_commit",git_commit)
+    out=root/"results"/"level_03"/"falsification"; out.mkdir(parents=True,exist_ok=True); frame.to_csv(out/"seed_results.csv",index=False); runtime=time.perf_counter()-started
+    manifest={"experiment_id":grid["name"],"protocol_hash":protocol_hash,"grid_hash":file_hash(grid_path),"git_commit":git_commit,"timestamp":datetime.now(timezone.utc).isoformat(),"conditions":len(tasks),"seeds_per_case":grid["seeds"]["count"],"logical_rounds":int(sum(x[2] for x in tasks)),"runtime_seconds":runtime,"workers":workers,"python":platform.python_version(),"result_path":str(out/"seed_results.csv")}
+    (out/"manifest.json").write_text(json.dumps(manifest,indent=2),encoding="utf-8"); print(json.dumps(manifest,indent=2))
+
+
 def main():
-    p=argparse.ArgumentParser(); p.add_argument("--grid",type=Path,required=True); p.add_argument("--protocol-hash",required=True); p.add_argument("--git-commit",required=True); p.add_argument("--workers",type=int,default=12); p.add_argument("--root",type=Path); a=p.parse_args()
-    execute(a.root or Path(__file__).resolve().parents[2],a.grid,a.protocol_hash,a.git_commit,a.workers)
+    p=argparse.ArgumentParser(); p.add_argument("--grid",type=Path,required=True); p.add_argument("--protocol-hash",required=True); p.add_argument("--git-commit",required=True); p.add_argument("--workers",type=int,default=12); p.add_argument("--root",type=Path); p.add_argument("--falsification",action="store_true"); a=p.parse_args(); root=a.root or Path(__file__).resolve().parents[2]
+    (execute_falsification if a.falsification else execute)(root,a.grid,a.protocol_hash,a.git_commit,a.workers)
 if __name__=="__main__": main()
