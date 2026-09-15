@@ -1,0 +1,19 @@
+# Literature map
+
+Search date: 2026-09-15. This is a scoped first-pass map, not a claim of exhaustive coverage. Links point to author/publisher records or preprints.
+
+| Work | Environment / agent | Main result relevant here | Limitation for this project |
+|---|---|---|---|
+| Calvano et al. (2020), *Artificial Intelligence, Algorithmic Pricing, and Collusion*, AER, [DOI](https://doi.org/10.1257/aer.20190623) | Repeated differentiated Bertrand competition; tabular Q-learning | Q-learners can sustain supracompetitive prices without communication | Pricing game, not bidding or principal-to-agent value reports |
+| Kolumbus & Nisan (2022), *Auctions Between Regret-Minimizing Agents*, [arXiv](https://arxiv.org/abs/2110.11855) | Repeated first/second-price auctions; regret-minimizing agents | Principals may benefit from misreporting values to agents in SPA; truthful input is dominant in their FPA model | Directly overlaps the proposed delegation layer; any novelty claim must distinguish assumptions or objects |
+| Deng et al. (2021), *Nash Convergence of Mean-Based Learning Algorithms in First Price Auctions*, [arXiv](https://arxiv.org/abs/2110.03906) | Fixed values; mean-based no-regret algorithms | Characterizes time-average and last-iterate convergence by number of top-valued bidders | Specific algorithm class and FPA environment |
+| Syrgkanis et al. (2015), *Fast Convergence of Regularized Learning in Games*, [arXiv](https://arxiv.org/abs/1507.00407) | Smooth games; regularized learning | Relates regret/variation to finite-time welfare convergence | Welfare framework is broad; not a delegation-specific mechanism result |
+| Lucier et al. (2023), *Autobidders with Budget and ROI Constraints*, [arXiv](https://arxiv.org/abs/2301.13306) | Repeated ad auctions; constrained autobidders with bandit feedback | Constraint satisfaction, no regret, and at least half optimal liquid welfare across FPA/SPA/intermediate formats | Objectives and constraints differ from fixed-value utility maximization |
+| Aggarwal et al. (2024), *Randomized Truthful Auctions with Learning Agents*, [arXiv](https://arxiv.org/abs/2411.09517) | Repeated auctions; no-regret bidders | Deterministic truthful auctions can fail to induce truthful learning; learning-rate ratios matter; randomized auctions improve revenue guarantees | Strong overlap with the proposed mechanism and learning-rate agenda |
+| Aggarwal et al. (2024), *Auto-bidding and Auctions in Online Advertising: A Survey*, [arXiv](https://arxiv.org/abs/2408.07685) | Survey of autobidding, equilibrium, welfare, and auction design | Establishes a broad existing autobidding literature | Demonstrates that a broad “markets with bidding algorithms” claim is not novel |
+| Shah et al. (2025), *Learning from Synthetic Labs: Language Models as Auction Participants*, [arXiv](https://arxiv.org/abs/2507.09083) | LLM participants in classic auction experiments | Reports format-dependent behavior and sensitivity to reasoning frames | LLMs are experimental proxies; not necessarily adaptive delegated policies |
+
+## Working synthesis
+
+The principal–algorithm–auction layer and mechanism-ranking reversals are already present in closely related work. The credible research space is narrower: a unified, preregistered robustness functional across specified learner/feedback classes; finite-horizon and perturbation-sensitive evaluation; or a theorem/mechanism improvement not subsumed by the randomized-auction and mean-based-learning results. Those possibilities remain hypotheses until a fuller citation graph and theorem-level comparison are completed.
+

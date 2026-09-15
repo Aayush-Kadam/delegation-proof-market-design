@@ -1,0 +1,8 @@
+cff-version: 1.2.0
+message: "If you use this research software, cite this repository release."
+title: "Delegation-Proof Market Design"
+type: software
+version: 0.1.0
+date-released: 2026-09-15
+license: MIT
+

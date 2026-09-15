@@ -1,0 +1,17 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,booktabs,hyperref}
+\title{Delegation-Proof Market Design: Research Protocol and Software Validation}
+\author{Anonymous research draft}
+\date{September 2026}
+\begin{document}\maketitle
+\begin{abstract}
+We specify a research program for repeated auctions in which principals delegate bids to adaptive algorithms. This draft documents software and prior-art boundaries; it claims no novel mechanism, theorem, or empirical finding.
+\end{abstract}
+\section{Question} Classical mechanism guarantees need not determine finite-horizon outcomes when algorithms choose repeated actions. The relevant objects include welfare, revenue, bidder surplus, regret, and sensitivity to the learner and feedback regime.
+\section{Prior art} Closely related work already studies regret-minimizing agents in first- and second-price auctions, mean-based convergence, randomized truthful auctions with learning bidders, and constrained autobidding. Any later contribution must be distinguished theorem by theorem.
+\section{Baseline model} Two bidders have fixed values $1$ and $0.6$ and bid on the grid $\{0,.01,\ldots,1\}$. This complete-information repeated game is not the symmetric Bayesian IPV model.
+\section{Evidence status} The code implements baseline mechanisms and learners with deterministic tests. Confirmatory experiments, frozen holdouts, deep-RL/LLM evaluation, mechanism selection, and theory remain undone.
+\section{Limitations} Simulation rounds are not independent statistical units; low revenue is not welfare loss; temporal association is not proof of collusion.
+\end{document}
+

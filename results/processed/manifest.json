@@ -1,0 +1,10 @@
+{
+  "diagnostic_only": true,
+  "rounds": 1000,
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "bid_grid": "0:0.01:1"
+}
