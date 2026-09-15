@@ -1,0 +1,26 @@
+{
+  "experiment_id": "LEVEL2-REPAIR-V2",
+  "protocol_version": "v2",
+  "protocol_hash": "b1a5cb3d11dc5e111475479557cfbd38cc316c9956603c0a2948da7af01832d1",
+  "git_commit": "a598b82f0e5322602bdbece137bc97bec46db4de",
+  "timestamp": "2026-09-15T13:32:07.380521+00:00",
+  "seeds": 30,
+  "horizons": [
+    25000,
+    50000,
+    100000,
+    200000
+  ],
+  "rate_schedules": {
+    "equal": "sqrt(log(K_i)/T)",
+    "diverging_runner": "eta_W=sqrt(log(K_W)/T); eta_R=sqrt(log(K_R))*T^(-1/3)"
+  },
+  "stability_metrics": [
+    "exact_policy_TV",
+    "Wasserstein-1",
+    "expected_bid_drift"
+  ],
+  "result_path": "C:\\Users\\AAYUSH\\Documents\\Codex\\2026-09-15\\files-mentioned-by-the-user-master\\outputs\\delegation-proof-market-design\\results\\replication_v2\\seed_results_v2.csv",
+  "runtime_seconds": 796.2551618000143,
+  "python": "3.12.14"
+}
