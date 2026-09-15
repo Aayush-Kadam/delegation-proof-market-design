@@ -1,0 +1,20 @@
+{
+  "name": "L3_FALSIFICATION_C3",
+  "candidate": "finite-horizon revenue-efficiency conflict under asymmetric adaptation",
+  "v_high": 1.0,
+  "seeds": {"start": 1000, "count": 50},
+  "mechanisms": ["first_price", "second_price"],
+  "cases": [
+    {"case": "independent_seeds", "v_low": 0.2, "horizon": 10000, "c_high": 0.5, "c_low": 1.0, "step": 0.01, "tail_share": 0.10},
+    {"case": "fine_grid", "v_low": 0.2, "horizon": 10000, "c_high": 0.5, "c_low": 1.0, "step": 0.005, "tail_share": 0.10},
+    {"case": "valuation_perturbation", "v_low": 0.225, "horizon": 10000, "c_high": 0.5, "c_low": 1.0, "step": 0.005, "tail_share": 0.10},
+    {"case": "rate_scale_0.8", "v_low": 0.2, "horizon": 10000, "c_high": 0.4, "c_low": 0.8, "step": 0.01, "tail_share": 0.10},
+    {"case": "rate_scale_1.25", "v_low": 0.2, "horizon": 10000, "c_high": 0.625, "c_low": 1.25, "step": 0.01, "tail_share": 0.10},
+    {"case": "double_horizon", "v_low": 0.2, "horizon": 20000, "c_high": 0.5, "c_low": 1.0, "step": 0.01, "tail_share": 0.10},
+    {"case": "tail_0.05", "v_low": 0.2, "horizon": 10000, "c_high": 0.5, "c_low": 1.0, "step": 0.01, "tail_share": 0.05},
+    {"case": "tail_0.20", "v_low": 0.2, "horizon": 10000, "c_high": 0.5, "c_low": 1.0, "step": 0.01, "tail_share": 0.20}
+  ],
+  "feedback": "full_expected_counterfactual",
+  "overbidding": false,
+  "tie_breaking": "uniform"
+}

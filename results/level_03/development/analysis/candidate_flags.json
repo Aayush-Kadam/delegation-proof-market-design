@@ -1,0 +1,15 @@
+[
+  {
+    "class": "C3",
+    "scope": "{\"v_low\": 0.2, \"horizon\": 10000.0, \"c_high\": 0.5, \"c_low\": 1.0, \"step\": 0.01}",
+    "magnitude": 0.6621526666667336,
+    "support_cells": 50,
+    "economic_magnitude_score": 10.0,
+    "statistical_robustness_score": 10.0,
+    "novelty_potential_score": 6,
+    "theory_tractability_score": 8,
+    "holdout_testability_score": 9,
+    "policy_relevance_score": 9,
+    "total_score": 52.0
+  }
+]
