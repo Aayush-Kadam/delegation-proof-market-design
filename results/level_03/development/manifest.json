@@ -1,0 +1,14 @@
+{
+  "experiment_id": "L3_DEVELOPMENT",
+  "protocol_hash": "94dcd343a5ac18faa3ebedcbd494a11a574dd236c58351c1a20ba6d57af7f438",
+  "grid_hash": "080132ff93589a7e63bd7077a8545d8c36708ac261cc2e11eabc87b3bf7f0af3",
+  "git_commit": "898143100aa4cfe51e7c220646fa264497bbc1f1",
+  "timestamp": "2026-09-15T16:19:20.571039+00:00",
+  "conditions": 3600,
+  "seeds_per_condition": 30,
+  "logical_rounds": 312000000,
+  "runtime_seconds": 7598.646955900011,
+  "workers": 12,
+  "python": "3.12.14",
+  "result_path": "C:\\Users\\AAYUSH\\Documents\\Codex\\2026-09-15\\files-mentioned-by-the-user-master\\outputs\\delegation-proof-market-design\\results\\level_03\\development\\seed_results.csv"
+}
