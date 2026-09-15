@@ -1,5 +1,7 @@
 # DELEGATION-PROOF MARKET DESIGN — FINAL STATUS
 
+> Historical M0/M1 snapshot. For the current replication and validation record, see `LEVEL_2_FINAL_REPLICATION_STATUS.md` and `M2_5_FINITE_HORIZON_VALIDATION_STATUS.md`. Historical Level 2 is MIXED; separate M2.5 finite-horizon validation is CERTIFIED.
+
 ## Overall verdict
 
 **PROMISING BUT INCOMPLETE**
@@ -47,4 +49,3 @@ Install with `python -m pip install -e ".[test,dashboard]"`, verify with `pytest
 ## Paper and release
 
 A conservative LaTeX scaffold exists at `paper/main.tex`; no PDF was compiled. No git commit, tag, remote repository, DOI, or online release was created.
-

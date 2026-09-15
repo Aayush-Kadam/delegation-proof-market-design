@@ -1,0 +1,40 @@
+{
+  "label": "EMPIRICAL EXTRAPOLATION - NOT A THEORETICAL RESULT",
+  "rate_ratio_coefficient": 0.923008289865802,
+  "observed_v2_throughput_rounds_per_second": 30141.091890375446,
+  "models": [
+    {
+      "model": "power",
+      "slope": -0.0042904545847212965,
+      "intercept": -0.00304601587780611,
+      "loho_rmse": 0.00035589788075706096,
+      "tv_0.9_log10_horizon": 10.356623475607925,
+      "tv_0.75_log10_horizon": 28.811834802071214,
+      "tv_0.5_log10_horizon": 69.85439930858259,
+      "tv_0.25_log10_horizon": 140.01712675848418,
+      "tv_0.1_log10_horizon": 232.7672073884339
+    },
+    {
+      "model": "log",
+      "slope": -0.004076858389315948,
+      "intercept": 0.9958505778972228,
+      "loho_rmse": 0.0003451422884758078,
+      "tv_0.9_log10_horizon": 10.210650724855382,
+      "tv_0.75_log10_horizon": 26.189663500037465,
+      "tv_0.5_log10_horizon": 52.821351458674265,
+      "tv_0.25_log10_horizon": 79.45303941731107,
+      "tv_0.1_log10_horizon": 95.43205219249315
+    },
+    {
+      "model": "inverse_log",
+      "slope": 0.5015701853862101,
+      "intercept": 0.9051908686195569,
+      "loho_rmse": 0.0008033965441660768,
+      "tv_0.9_log10_horizon": null,
+      "tv_0.75_log10_horizon": null,
+      "tv_0.5_log10_horizon": null,
+      "tv_0.25_log10_horizon": null,
+      "tv_0.1_log10_horizon": null
+    }
+  ]
+}

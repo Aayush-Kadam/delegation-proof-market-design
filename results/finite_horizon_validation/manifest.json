@@ -1,0 +1,22 @@
+{
+  "experiment_id": "M2.5-FINITE-HORIZON-VALIDATION",
+  "protocol_hash": "fbdd412cd800cbca0b1627c1eb3b23a5d912762f61128474df66ad300d0cc9ad",
+  "timestamp": "2026-09-15T13:50:21.050554+00:00",
+  "seeds": 30,
+  "mechanisms": [
+    "first_price",
+    "second_price"
+  ],
+  "horizons": [
+    10000,
+    25000,
+    50000,
+    100000,
+    200000
+  ],
+  "total_rounds": 23100000,
+  "exact_policy_rounds": 770000,
+  "runtime_seconds": 46.873434700013604,
+  "pass": true,
+  "python": "3.12.14"
+}

@@ -30,6 +30,8 @@ Outputs are written to `results/processed/` and `results/tables/`.
 
 See `docs/result_registry.md`. No result becomes a project claim merely because the simulator emits it.
 
+Historical Level 2 remains **MIXED** (V1 FAIL; V2 FAIL). The separate M2.5 finite-horizon simulator validation is **CERTIFIED** within the bounded domain in `docs/level_3_readiness.md`; asymptotic last-iterate convergence remains unvalidated.
+
 ## Repository map
 
 - `src/delegation_market/`: mechanisms, learners, metrics, simulation, experiment runner
@@ -46,4 +48,3 @@ Current simulations use fixed values and discrete bids. Hedge receives full-info
 ## Citation
 
 Use `CITATION.cff`. This is a pre-research software release, not a peer-reviewed result.
-
