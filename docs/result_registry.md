@@ -15,6 +15,8 @@
 | L3-C3-FALS | The frozen C3 candidate survives all eight preregistered falsification attacks | FALSIFICATION PASS | `results/level_03/falsification/verdict.json` | Substantial overlap |
 | L3-C3-HOLDOUT | The frozen directional objective-conflict gate passes in 54/75 independent holdout cells | HOLDOUT PASS | `results/level_03/holdout/analysis/primary_candidate_verdict.json` | Substantial overlap |
 | L3-FINAL | The candidate is robust across development, falsification, and holdout, but prior literature caps the scientific verdict | MIXED / PROMISING PHENOMENON | `docs/LEVEL_3_STATUS.md` | Yes; no novelty claim |
+| M4-SMALL | Exact `.25`-grid mean-field Hedge reproduces the revenue-allocation sign conflict in 59/60 tiny cells and supplies one counterexample to universality | EXPLANATORY / NOT CONFIRMATORY | `results/m4/small_game/verdict.json` | Yes |
+| M4-NOVELTY | The joint finite-horizon objective-conflict surface is possibly distinct, but its component mechanisms are known | PROMISING BUT NARROW | `docs/m4_novelty_matrix.md` | Claim-by-claim audit complete |
 
 V1 and V2 both leave historical Level 2 MIXED because fewer than two targets strictly passed their prospective criteria. Separately, M2.5 certifies the simulator for the finite-horizon domain stated in `docs/level_3_readiness.md`; it does not revise Level 2.
 

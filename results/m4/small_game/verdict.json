@@ -1,0 +1,24 @@
+{
+  "cells": 60,
+  "revenue_favors_fpa": 59,
+  "allocation_favors_spa": 60,
+  "sign_conflict": 59,
+  "by_value": [
+    {
+      "v_low": 0.25,
+      "sum": 20,
+      "count": 20
+    },
+    {
+      "v_low": 0.5,
+      "sum": 20,
+      "count": 20
+    },
+    {
+      "v_low": 0.75,
+      "sum": 19,
+      "count": 20
+    }
+  ],
+  "interpretation": "Exact deterministic mean-field Hedge on a .25 grid; explanatory, not confirmatory evidence."
+}
