@@ -26,6 +26,11 @@
 | TH-M6-003 | The same closed rectangle supports the conflict for every H=2,...,9 | THEOREM | `docs/m6_proof.md`, `results/m6/interval_box.json` | Yes, targeted audit |
 | TH-M6-004 | Current interval proof extends through H=10 | CONJECTURE | H=10 enclosure crosses zero; witness remains positive | Pending |
 | TH-M6-005 | Uniform early-horizon off-core mass control from Hedge alone | DISPROVEN | Uniform initialization and absent uniform payoff gaps | Structural |
+| TH-M7-001 | Exact 4x2 payoff system and four-ratio Hedge recurrence | PROPOSITION | `docs/m7_proof.md` | Yes |
+| TH-M7-002 | M6 conflict survives at a 4x2 witness | RESTRICTED-THEOREM | `results/m7/exploration.json` | Yes |
+| TH-M7-003 | Closed 4x2 rectangle supports conflict for every H=2,...,6 | THEOREM | `results/m7/interval_box.json` | Targeted audit |
+| TH-M7-004 | Fixed-history Hedge action-expansion/off-core-mass bound | PROPOSITION | `docs/m7_proof.md` | Elementary/known algebra |
+| TH-M7-005 | Existing rectangle certified at H=7 in 4x2 model | CONJECTURE | Numerical support; interval enclosure inconclusive | Pending |
 
 V1 and V2 both leave historical Level 2 MIXED because fewer than two targets strictly passed their prospective criteria. Separately, M2.5 certifies the simulator for the finite-horizon domain stated in `docs/level_3_readiness.md`; it does not revise Level 2.
 

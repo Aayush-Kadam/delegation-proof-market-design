@@ -1,0 +1,79 @@
+{
+  "configurations": 125,
+  "evaluations": 1000,
+  "all_conflict": true,
+  "witness": [
+    {
+      "v": 0.3333333333333333,
+      "eta_high": 1,
+      "eta_low": 0.1,
+      "H": 2,
+      "delta_revenue": 0.2820984960770456,
+      "delta_allocation": 0.03075154719657569,
+      "conflict": true
+    },
+    {
+      "v": 0.3333333333333333,
+      "eta_high": 1,
+      "eta_low": 0.1,
+      "H": 3,
+      "delta_revenue": 0.256005473945091,
+      "delta_allocation": 0.05718156007584174,
+      "conflict": true
+    },
+    {
+      "v": 0.3333333333333333,
+      "eta_high": 1,
+      "eta_low": 0.1,
+      "H": 4,
+      "delta_revenue": 0.23412146309424206,
+      "delta_allocation": 0.07946511354245656,
+      "conflict": true
+    },
+    {
+      "v": 0.3333333333333333,
+      "eta_high": 1,
+      "eta_low": 0.1,
+      "H": 5,
+      "delta_revenue": 0.216084079574816,
+      "delta_allocation": 0.0980307519926964,
+      "conflict": true
+    },
+    {
+      "v": 0.3333333333333333,
+      "eta_high": 1,
+      "eta_low": 0.1,
+      "H": 6,
+      "delta_revenue": 0.2013979228917888,
+      "delta_allocation": 0.11342100337107275,
+      "conflict": true
+    },
+    {
+      "v": 0.3333333333333333,
+      "eta_high": 1,
+      "eta_low": 0.1,
+      "H": 7,
+      "delta_revenue": 0.18953504115873657,
+      "delta_allocation": 0.1261882473821857,
+      "conflict": true
+    },
+    {
+      "v": 0.3333333333333333,
+      "eta_high": 1,
+      "eta_low": 0.1,
+      "H": 8,
+      "delta_revenue": 0.17999728746032181,
+      "delta_allocation": 0.1368341411195213,
+      "conflict": true
+    },
+    {
+      "v": 0.3333333333333333,
+      "eta_high": 1,
+      "eta_low": 0.1,
+      "H": 9,
+      "delta_revenue": 0.17234681102848576,
+      "delta_allocation": 0.14578402938669766,
+      "conflict": true
+    }
+  ]
+}
