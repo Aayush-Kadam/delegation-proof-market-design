@@ -1,0 +1,26 @@
+{
+  "environments": 750,
+  "conflict_count": 614,
+  "smallest_allocation_counterexample": {
+    "v": 0.9500000000000001,
+    "eta_high": 0.25,
+    "eta_low": 8.0,
+    "delta_revenue": 0.34811000767126266,
+    "delta_allocation_spa_minus_fpa": -0.0844752778763786,
+    "phi_round_two_allocation": -0.1689505557527572
+  },
+  "certificate_point": {
+    "v": 0.3333333333333333,
+    "eta_high": 1,
+    "eta_low": 0.1,
+    "delta_revenue": 0.35441468104109347,
+    "delta_allocation_spa_minus_fpa": 0.04334383670453307,
+    "phi_round_two_allocation": 0.08668767340906613
+  },
+  "known_m4_counterexample_preserved": {
+    "v": 0.75,
+    "H": 1600,
+    "c_high": 1,
+    "c_low": 2
+  }
+}

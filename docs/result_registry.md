@@ -17,6 +17,10 @@
 | L3-FINAL | The candidate is robust across development, falsification, and holdout, but prior literature caps the scientific verdict | MIXED / PROMISING PHENOMENON | `docs/LEVEL_3_STATUS.md` | Yes; no novelty claim |
 | M4-SMALL | Exact `.25`-grid mean-field Hedge reproduces the revenue-allocation sign conflict in 59/60 tiny cells and supplies one counterexample to universality | EXPLANATORY / NOT CONFIRMATORY | `results/m4/small_game/verdict.json` | Yes |
 | M4-NOVELTY | The joint finite-horizon objective-conflict surface is possibly distinct, but its component mechanisms are known | PROMISING BUT NARROW | `docs/m4_novelty_matrix.md` | Claim-by-claim audit complete |
+| TH-M5-001 | Symmetric two-action reduction produces the target two-round allocation sign | DISPROVEN | `docs/m5_proof.md` and M5 notes | Yes |
+| TH-M5-002 | Universal finite-horizon FPA revenue dominance | COUNTEREXAMPLE | `results/m4/small_game/verdict.json` | Yes |
+| TH-M5-003 | On explicit `C_2`, two-round FPA revenue exceeds SPA while SPA allocation exceeds FPA | THEOREM | `docs/m5_proof.md`, `results/m5/interval_certificate.json` | Yes, theorem-level audit |
+| TH-M5-004 | Hedge cumulative log-weight ratio identity | RESTRICTED-PROPOSITION | `docs/m5_proof.md` | Established identity |
 
 V1 and V2 both leave historical Level 2 MIXED because fewer than two targets strictly passed their prospective criteria. Separately, M2.5 certifies the simulator for the finite-horizon domain stated in `docs/level_3_readiness.md`; it does not revise Level 2.
 
