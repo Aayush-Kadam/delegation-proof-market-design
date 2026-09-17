@@ -1,0 +1,9 @@
+{
+  "completed": 600,
+  "config_hash": "c0366c21bc43700c7260ea8006bab3a2349bc1a19745b31390be6ec36a32a2dc",
+  "expected": 600,
+  "remaining": 0,
+  "runtime_seconds": 672.4855764999957,
+  "status": "complete",
+  "workers": 4
+}

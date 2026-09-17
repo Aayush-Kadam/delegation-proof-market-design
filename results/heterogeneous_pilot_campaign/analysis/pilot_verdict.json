@@ -1,0 +1,56 @@
+{
+  "runs": 600,
+  "unique": 600,
+  "corrupt": 0,
+  "profiles": [
+    {
+      "profile": "ftpl__hedge",
+      "D_R": 0.23820763999993969,
+      "D_A": 0.03345600000000001,
+      "D_W": 0.021069999999999776,
+      "revenue_reversal": false,
+      "allocation_reversal": false
+    },
+    {
+      "profile": "ftpl__regret_matching",
+      "D_R": 0.1745880800002594,
+      "D_A": 0.01091200000000001,
+      "D_W": 0.006719999999999815,
+      "revenue_reversal": false,
+      "allocation_reversal": false
+    },
+    {
+      "profile": "hedge__ftpl",
+      "D_R": 0.022060240000002736,
+      "D_A": 0.051859999999999996,
+      "D_W": 0.025569999999999992,
+      "revenue_reversal": false,
+      "allocation_reversal": false
+    },
+    {
+      "profile": "hedge__regret_matching",
+      "D_R": 0.01428424000012989,
+      "D_A": 0.027559999999999994,
+      "D_W": 0.015098500000281434,
+      "revenue_reversal": false,
+      "allocation_reversal": false
+    },
+    {
+      "profile": "regret_matching__ftpl",
+      "D_R": 0.016675719999989774,
+      "D_A": 0.04193199999999999,
+      "D_W": 0.017433599999986803,
+      "revenue_reversal": false,
+      "allocation_reversal": false
+    },
+    {
+      "profile": "regret_matching__hedge",
+      "D_R": 0.2451917999999607,
+      "D_A": 0.020867999999999987,
+      "D_W": 0.010433999999999988,
+      "revenue_reversal": false,
+      "allocation_reversal": false
+    }
+  ],
+  "catastrophic_reversal": false
+}

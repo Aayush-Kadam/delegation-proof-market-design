@@ -1,0 +1,14 @@
+{
+  "phase": "heterogeneous_learner_validation",
+  "level_5_base_commit": "336d94174636cbcdc16228785c1f9780a083ea4e",
+  "implementation_commit": "3dad825",
+  "expected_mechanism_runs": 9000,
+  "logical_auction_rounds": 288000000,
+  "workers": 4,
+  "files": {
+    "src/delegation_market/heterogeneous.py": "16F141044A38B08B1B7C5B6D1766E0C3821E7D79DF1DF28B1DE0F0BD565E3097",
+    "configs/heterogeneous/main.json": "94A4A4C18EAFCE6755ACE88522A3FCA5E92EE2EE7CCF4758E43110290628037D",
+    "docs/heterogeneous_learner_protocol.md": "DAAC0D3CC73481E29A85B3E120B5A9D9253270F12922FCFE50C9439AE16FA3B1",
+    "tests/test_heterogeneous.py": "795BD7E9CFB726528F9899A3D04AE622D2F9D37F36538F2E9830ABFB86E80B42"
+  }
+}
