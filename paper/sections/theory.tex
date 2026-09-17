@@ -7,3 +7,6 @@ This theorem isolates the mechanism behind the Level-3 sign conflict but does no
 
 \subsection{Robustness to an added bid}
 Expand the high bidder's action set to $\{0,v/2,v,1\}$ while retaining low actions $\{0,v\}$. For $v\in[.30,.36]$, $\eta_H\in[.8,1.2]$, $\eta_L\in[.05,.15]$, and every $H\in\{2,\ldots,6\}$, outward-rounded interval propagation proves that FPA revenue exceeds SPA revenue while SPA allocation and welfare exceed FPA. Thus the conflict is not an artifact of exactly three high-bid actions, although the added action reduces both margins and a full-grid transfer still requires control of endogenous payoff-history perturbations.
+
+\subsection{Both bidders have an intermediate action}
+With high actions $\{0,v/2,v,1\}$ and low actions $\{0,v/2,v\}$, the conflict holds for $v\in[.31,.35]$, $\eta_H\in[.85,1.15]$, $\eta_L\in[.06,.14]$, and $H=2,\ldots,6$. A finite-horizon coupling lemma bounds core-policy divergence by $d_t\le2\bar\eta\sum_{s<t}(1+\bar\eta)^{t-1-s}e_s$, where $e_s$ is off-core mass. This gives a conditional sign-transfer theorem, but uniform initialization makes its generic constants too loose for the present expansion; the richer-grid theorem is established directly by intervals.
