@@ -21,6 +21,11 @@
 | TH-M5-002 | Universal finite-horizon FPA revenue dominance | COUNTEREXAMPLE | `results/m4/small_game/verdict.json` | Yes |
 | TH-M5-003 | On explicit `C_2`, two-round FPA revenue exceeds SPA while SPA allocation exceeds FPA | THEOREM | `docs/m5_proof.md`, `results/m5/interval_certificate.json` | Yes, theorem-level audit |
 | TH-M5-004 | Hedge cumulative log-weight ratio identity | RESTRICTED-PROPOSITION | `docs/m5_proof.md` | Established identity |
+| TH-M6-001 | Exact three-log-ratio recurrence for the 3x2 Hedge model | PROPOSITION | `docs/m6_proof.md`, `src/delegation_market/m6_theory.py` | Yes |
+| TH-M6-002 | Closed parameter rectangle supports the conflict at H=2 | RESTRICTED-THEOREM | `results/m6/interval_box.json` | Yes |
+| TH-M6-003 | The same closed rectangle supports the conflict for every H=2,...,9 | THEOREM | `docs/m6_proof.md`, `results/m6/interval_box.json` | Yes, targeted audit |
+| TH-M6-004 | Current interval proof extends through H=10 | CONJECTURE | H=10 enclosure crosses zero; witness remains positive | Pending |
+| TH-M6-005 | Uniform early-horizon off-core mass control from Hedge alone | DISPROVEN | Uniform initialization and absent uniform payoff gaps | Structural |
 
 V1 and V2 both leave historical Level 2 MIXED because fewer than two targets strictly passed their prospective criteria. Separately, M2.5 certifies the simulator for the finite-horizon domain stated in `docs/level_3_readiness.md`; it does not revise Level 2.
 
