@@ -1,0 +1,13 @@
+{
+  "phase": "level_05_cross_learner_validation",
+  "starting_head": "1e23d020e5757f93c6e0a825ad4d7ed4371dc9e0",
+  "expected_mechanism_runs": 4500,
+  "logical_auction_rounds": 144000000,
+  "files": {
+    "src/delegation_market/level5.py": "09B4614D26F7135721C7ED72B40EE1CBF4F0BFC92E548E1768F49A448F568394",
+    "configs/level_05/environments.json": "F2CB5A268261DFBFC992562539ECA7662E2E70D5243B78A0F6403B2FA4BFE2C0",
+    "docs/level_5_learner_spec.md": "79C6FA5184F21366A17C87A526C70FF792B24AF319251DB03A929AAB289C1EB0",
+    "docs/level_05_protocol.md": "6984D79CF365787BBD070378B5C46809825F9654EC3DE717F21B5237FF09D0B3",
+    "tests/test_level5.py": "F8EA8AF0F075B86CB553FF0AC7230BEEE7705FA94F2E9F31DC0A510E04AC9FC6"
+  }
+}
