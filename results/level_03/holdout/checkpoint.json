@@ -1,0 +1,19 @@
+{
+  "completed_pairs": 2250,
+  "expected_pairs": 2250,
+  "experiment_id": "L3_HOLDOUT",
+  "failures": [],
+  "git_commit": "e40e044",
+  "grid_hash": "5b65a1c9ee21e89484b93c43df5706ed35138c67be84234d75d7deffea6d4729",
+  "pair_id_set_hash": "6f88021f4e668b4beda1f0e279adfa810bc554748221019a16929fb56b859748",
+  "parts_path": "C:\\Users\\AAYUSH\\Documents\\Codex\\2026-09-15\\files-mentioned-by-the-user-master\\outputs\\delegation-proof-market-design\\results\\level_03\\holdout\\pairs",
+  "pool_restarts": 0,
+  "protocol_hash": "94dcd343a5ac18faa3ebedcbd494a11a574dd236c58351c1a20ba6d57af7f438",
+  "python": "3.12.14",
+  "remaining_pairs": 0,
+  "shard_count": 1,
+  "shard_index": 0,
+  "status": "complete",
+  "timestamp": "2026-09-17T12:53:13.446443+00:00",
+  "workers": 2
+}

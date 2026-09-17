@@ -11,6 +11,10 @@
 | R-REP-002-V2 | FPA again matches price/allocation but narrowly fails prospective half-to-half economic-stability thresholds | PARTIAL REPLICATION | `experiments/level_02/replication_repair_v2_report.md` | V2 source mapping complete |
 | R-REP-003-V2 | A theorem-compatible diverging-rate sequence improves exact last-iterate truthfulness at every horizon but does not reach frozen trend magnitudes | PARTIAL REPLICATION | `results/replication_v2/seed_results_v2.csv` | Theorem D.4 mapped |
 | M2.5-FH-001 | Hedge exact expected regret satisfies the finite-time exponential-weights inequality in all ten frozen FPA/SPA horizon strata | REPLICATED / PASS | `results/finite_horizon_validation/summary.csv` | Source result checked prospectively |
+| L3-C3-DEV | A frozen development cell exhibits an FPA-revenue versus SPA-allocation/welfare objective conflict | EXPLORATORY / CANDIDATE FROZEN | `results/level_03/development/analysis/paired_cell_summary.csv` | Substantial overlap |
+| L3-C3-FALS | The frozen C3 candidate survives all eight preregistered falsification attacks | FALSIFICATION PASS | `results/level_03/falsification/verdict.json` | Substantial overlap |
+| L3-C3-HOLDOUT | The frozen directional objective-conflict gate passes in 54/75 independent holdout cells | HOLDOUT PASS | `results/level_03/holdout/analysis/primary_candidate_verdict.json` | Substantial overlap |
+| L3-FINAL | The candidate is robust across development, falsification, and holdout, but prior literature caps the scientific verdict | MIXED / PROMISING PHENOMENON | `docs/LEVEL_3_STATUS.md` | Yes; no novelty claim |
 
 V1 and V2 both leave historical Level 2 MIXED because fewer than two targets strictly passed their prospective criteria. Separately, M2.5 certifies the simulator for the finite-horizon domain stated in `docs/level_3_readiness.md`; it does not revise Level 2.
 
