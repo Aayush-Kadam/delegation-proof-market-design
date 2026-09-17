@@ -1,0 +1,188 @@
+{
+  "verdict": "STRONG CROSS-LEARNER GENERALIZATION",
+  "learners": {
+    "hedge": {
+      "classification": "STRONG GENERALIZATION",
+      "cells_passed": 25,
+      "median_D_R_ci95": [
+        0.10490740666664997,
+        0.09875549999993162,
+        0.12674467666665618
+      ],
+      "median_D_A_ci95": [
+        0.06716333333333332,
+        0.05536299999999999,
+        0.07948333333333334
+      ],
+      "median_D_W_ci95": [
+        0.016860466666673197,
+        0.015176199999999907,
+        0.01969803333333602
+      ],
+      "support_by_valuation_out_of_5": {
+        "0.1": 5,
+        "0.3": 5,
+        "0.5": 5,
+        "0.7": 5,
+        "0.9": 5
+      },
+      "support_by_horizon": {
+        "5000": {
+          "passed": 10,
+          "total": 10
+        },
+        "25000": {
+          "passed": 10,
+          "total": 10
+        },
+        "100000": {
+          "passed": 5,
+          "total": 5
+        }
+      },
+      "regret_per_round": {
+        "first_price": {
+          "high_mean": 0.01916373646671175,
+          "high_median": 0.013151399999952318,
+          "low_mean": 0.005800161599998354,
+          "low_median": 0.003742399999995539
+        },
+        "second_price": {
+          "high_mean": 0.004748669600000034,
+          "high_median": 0.002077000000000189,
+          "low_mean": 0.0025998550666666126,
+          "low_median": 0.0007515999999999992
+        }
+      }
+    },
+    "ftpl": {
+      "classification": "STRONG GENERALIZATION",
+      "cells_passed": 25,
+      "median_D_R_ci95": [
+        0.1092776066666989,
+        0.09512037333330906,
+        0.1234805800000753
+      ],
+      "median_D_A_ci95": [
+        0.07089233333333335,
+        0.06343099999999999,
+        0.07994866666666664
+      ],
+      "median_D_W_ci95": [
+        0.017381266666660584,
+        0.016228766666662953,
+        0.01929203333332985
+      ],
+      "support_by_valuation_out_of_5": {
+        "0.1": 5,
+        "0.3": 5,
+        "0.5": 5,
+        "0.7": 5,
+        "0.9": 5
+      },
+      "support_by_horizon": {
+        "5000": {
+          "passed": 10,
+          "total": 10
+        },
+        "25000": {
+          "passed": 10,
+          "total": 10
+        },
+        "100000": {
+          "passed": 5,
+          "total": 5
+        }
+      },
+      "regret_per_round": {
+        "first_price": {
+          "high_mean": 0.02224457599998805,
+          "high_median": 0.014351400000209024,
+          "low_mean": 0.014650742266664291,
+          "low_median": 0.010099100000000433
+        },
+        "second_price": {
+          "high_mean": 0.003891102000000051,
+          "high_median": 0.0,
+          "low_mean": 0.0035819197333331588,
+          "low_median": 0.0
+        }
+      }
+    },
+    "regret_matching": {
+      "classification": "STRONG GENERALIZATION",
+      "cells_passed": 25,
+      "median_D_R_ci95": [
+        0.10665383333338507,
+        0.09665512333343663,
+        0.11551042000006542
+      ],
+      "median_D_A_ci95": [
+        0.07028266666666666,
+        0.06271033333333333,
+        0.07748466666666669
+      ],
+      "median_D_W_ci95": [
+        0.016166466666665318,
+        0.014089066666670565,
+        0.017096033333335797
+      ],
+      "support_by_valuation_out_of_5": {
+        "0.1": 5,
+        "0.3": 5,
+        "0.5": 5,
+        "0.7": 5,
+        "0.9": 5
+      },
+      "support_by_horizon": {
+        "5000": {
+          "passed": 10,
+          "total": 10
+        },
+        "25000": {
+          "passed": 10,
+          "total": 10
+        },
+        "100000": {
+          "passed": 5,
+          "total": 5
+        }
+      },
+      "regret_per_round": {
+        "first_price": {
+          "high_mean": 0.00045341813333316415,
+          "high_median": 0.00019300000000011094,
+          "low_mean": 8.755013333333026e-05,
+          "low_median": 9.999999999999875e-06
+        },
+        "second_price": {
+          "high_mean": 7.668826666666586e-05,
+          "high_median": 3.6399999999994176e-05,
+          "low_mean": 1.8306399999999995e-05,
+          "low_median": 3.600000000000001e-06
+        }
+      }
+    }
+  },
+  "sign_agreement": {
+    "hedge__ftpl": {
+      "revenue_sign_agreement": 1.0,
+      "allocation_sign_agreement": 1.0
+    },
+    "hedge__regret_matching": {
+      "revenue_sign_agreement": 1.0,
+      "allocation_sign_agreement": 1.0
+    },
+    "ftpl__regret_matching": {
+      "revenue_sign_agreement": 1.0,
+      "allocation_sign_agreement": 1.0
+    }
+  },
+  "completeness": {
+    "expected": 4500,
+    "unique": 4500,
+    "missing": 0,
+    "duplicates": 0,
+    "corrupt": 0
+  }
+}

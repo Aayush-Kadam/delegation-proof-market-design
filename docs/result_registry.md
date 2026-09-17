@@ -36,6 +36,10 @@
 | TH-M8-003 | Finite-horizon endogenous Hedge trajectory stability bound | PROPOSITION | `docs/m8_proof.md` | General ingredients known |
 | TH-M8-004 | Margin-minus-stability-error sign transfer | CONDITIONAL-THEOREM | `docs/m8_proof.md` | Incremental |
 | TH-M8-005 | Uniform-initialized 4x3 follows from generic transfer bound | DISPROVEN | Initial off-core mass makes bound vacuous | Structural |
+| R-L5-HEDGE | Hedge reproduces the joint FPA-revenue/SPA-allocation conflict in all 25 frozen cross-learner cells | CONFIRMED | `results/level_05/analysis/cell_summary.csv` | Control result; theory remains separately scoped |
+| R-L5-FTPL | Full-information FTPL reproduces the joint conflict in all 25 primary cells and all 3 limited falsification attacks | CONFIRMED | `results/level_05/analysis/summary.json`; falsification analysis | Cross-learner computational evidence |
+| R-L5-RM | External regret matching passes all 25 primary cells but misses the allocation magnitude threshold in 3/3 independent-seed falsification attacks | PARTIAL | primary and falsification cell summaries | Learner/seed sensitivity |
+| R-L5-AGG | The frozen primary Level-5 gate yields strong cross-learner generalization, qualified by regret-matching falsification instability | CONFIRMED / QUALIFIED | `docs/LEVEL_5_STATUS.md` | Theory not extended beyond Hedge |
 
 V1 and V2 both leave historical Level 2 MIXED because fewer than two targets strictly passed their prospective criteria. Separately, M2.5 certifies the simulator for the finite-horizon domain stated in `docs/level_3_readiness.md`; it does not revise Level 2.
 
