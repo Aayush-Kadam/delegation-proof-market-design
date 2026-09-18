@@ -4,6 +4,7 @@ from pathlib import Path
 import numpy as np
 
 from delegation_market.m9 import run_id, run_job, tasks
+from delegation_market.m9_analysis import select_candidate, summarize_development
 from delegation_market.mechanisms import run_auction
 from delegation_market.simulation import counterfactual_rewards
 from delegation_market.agents import HedgeAgent
@@ -48,3 +49,30 @@ def test_tiny_hybrid_job_serializes_all_objectives():
     assert 0 <= row["revenue"] <= 1
     assert 0 <= row["high_win"] <= 1
     assert abs(row["welfare"] - row["revenue"] - row["bidder_surplus"]) < 1e-12
+
+
+def test_candidate_rule_is_lexicographic_and_respects_floors():
+    import pandas as pd
+    frontier = pd.DataFrame([
+        {"alpha": .3, "q_revenue_worst": .2, "q_allocation_worst": .08,
+         "q_joint_worst": .2, "q_joint_cvar90": .1, "q_joint_p95": .15, "q_joint_mean": .05},
+        {"alpha": .5, "q_revenue_worst": .3, "q_allocation_worst": .05,
+         "q_joint_worst": .1, "q_joint_cvar90": .05, "q_joint_p95": .08, "q_joint_mean": .03},
+        {"alpha": .7, "q_revenue_worst": .2, "q_allocation_worst": .08,
+         "q_joint_worst": .2, "q_joint_cvar90": .1, "q_joint_p95": .15, "q_joint_mean": .05},
+    ])
+    assert select_candidate(frontier)["alpha"] == .3
+
+
+def test_regret_summary_uses_endpoint_best_per_cell():
+    import pandas as pd
+    base = {"learner_high": "hedge", "learner_low": "hedge", "environment_id": 0,
+            "v_low": .5, "horizon": 10, "c_high": 1, "c_low": 1,
+            "welfare": .8, "bidder_surplus": .4}
+    rows = pd.DataFrame([{**base, "alpha": 0., "revenue": .3, "high_win": .9},
+                         {**base, "alpha": .5, "revenue": .4, "high_win": .8},
+                         {**base, "alpha": 1., "revenue": .5, "high_win": .7}])
+    cells, frontier = summarize_development(rows)
+    middle = cells[cells.alpha == .5].iloc[0]
+    assert abs(middle.q_revenue - .2) < 1e-12
+    assert abs(middle.q_allocation - .1) < 1e-12
