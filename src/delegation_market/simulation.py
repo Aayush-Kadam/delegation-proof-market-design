@@ -16,7 +16,7 @@ class SimulationConfig:
     record_every: int = 1
 
 
-def counterfactual_rewards(agent, own_index, bids, mechanism, reserve, alpha):
+def counterfactual_rewards(agent, own_index, bids, mechanism, reserve, alpha, tau=1.0):
     """Expected utilities for each action against realized rival bids.
 
     Ties are evaluated in expectation under uniform tie-breaking; sampling them
@@ -28,6 +28,9 @@ def counterfactual_rewards(agent, own_index, bids, mechanism, reserve, alpha):
     if mechanism in {"first_price","reserve_first_price"}: utility=alloc*(agent.value-grid)
     elif mechanism in {"second_price","reserve_second_price"}: utility=alloc*(agent.value-np.maximum(reserve,top))
     elif mechanism=="hybrid": utility=alloc*(agent.value-np.maximum(reserve,alpha*grid+(1-alpha)*top))
+    elif mechanism=="gap_adaptive":
+        high=np.maximum(grid,top);second=np.minimum(grid,top);gap=np.divide(high-second,high,out=np.zeros_like(high),where=high>0)
+        weight=alpha+(1-alpha)*np.minimum(gap/tau,1.0);payment=np.maximum(reserve,second+weight*(high-second));utility=alloc*(agent.value-payment)
     elif mechanism=="all_pay": utility=alloc*agent.value-grid
     else: raise ValueError(f"unknown mechanism: {mechanism}")
     return utility

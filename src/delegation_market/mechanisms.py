@@ -10,7 +10,15 @@ class AuctionResult:
     price: float
 
 
-def run_auction(bids, kind="first_price", reserve=0.0, alpha=1.0, rng=None):
+def gap_adaptive_alpha(top, second, a, tau):
+    """Observable-bid interpolation weight for the gap-adaptive hybrid."""
+    if not 0 <= a <= 1 or not 0 < tau <= 1:
+        raise ValueError("a must lie in [0,1] and tau in (0,1]")
+    g = 0.0 if top == 0 else (top - second) / top
+    return a + (1 - a) * min(g / tau, 1.0)
+
+
+def run_auction(bids, kind="first_price", reserve=0.0, alpha=1.0, rng=None, tau=1.0):
     """Resolve a single-item auction with uniform random tie-breaking."""
     bids = np.asarray(bids, dtype=float)
     if bids.ndim != 1 or bids.size == 0 or np.any(~np.isfinite(bids)) or np.any(bids < 0):
@@ -34,6 +42,9 @@ def run_auction(bids, kind="first_price", reserve=0.0, alpha=1.0, rng=None):
         price = max(float(reserve), second)
     elif kind == "hybrid":
         price = max(float(reserve), alpha * float(bids[winner]) + (1 - alpha) * second)
+    elif kind == "gap_adaptive":
+        weight = gap_adaptive_alpha(float(bids[winner]), second, alpha, tau)
+        price = max(float(reserve), second + weight * (float(bids[winner]) - second))
     elif kind == "all_pay":
         payments[:] = bids
         return AuctionResult(winner, allocations, payments, float(payments.sum()))
@@ -41,4 +52,3 @@ def run_auction(bids, kind="first_price", reserve=0.0, alpha=1.0, rng=None):
         raise ValueError(f"unknown mechanism: {kind}")
     payments[winner] = price
     return AuctionResult(winner, allocations, payments, price)
-
