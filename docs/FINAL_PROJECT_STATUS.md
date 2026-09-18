@@ -25,16 +25,16 @@ No universal auction impossibility, full-grid theorem, heterogeneous-learning th
 ## Reproducibility status
 
 - Test suite: PASS, 66 tests.
-- Final manuscript build: PASS, 9 pages and 2,977 source words.
+- Final manuscript build: PASS, 18 pages and more than 8,000 source words including references and appendices.
 - Publication-figure regeneration: PASS.
 - Level-3, Level-5, and heterogeneous key-table/figure regeneration: PASS from durable records.
 - M11 certificate regeneration: PASS in the completed recovery audit; normalized content matches the committed 10,000-subinterval artifact.
 - Claim, privacy, M11 witness, and large-file audits: PASS.
-- Clean external-machine reproduction: PENDING external execution.
+- Internal clean-room reproduction: PASS; independent external reproduction remains pending.
 
 ## Release status
 
-The research package is release ready. No GitHub remote, GitHub Release, archival DOI, or external verification is claimed. Exact publication and archive steps are in `docs/GITHUB_RELEASE_PLAN.md` and `docs/ARCHIVAL_RELEASE_PLAN.md`.
+The v1.1.0 submission package is release ready. No GitHub remote, GitHub Release, archival DOI, or external verification is claimed. Exact publication and archive steps are in `docs/GITHUB_RELEASE_PLAN.md` and `docs/ARCHIVAL_RELEASE_PLAN.md`.
 
 ## Readiness
 

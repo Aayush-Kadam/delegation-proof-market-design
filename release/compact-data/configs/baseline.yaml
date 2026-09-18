@@ -1,0 +1,10 @@
+status: development
+environment:
+  values: [1.0, 0.6]
+  bid_grid: {start: 0.0, stop: 1.0, step: 0.01}
+mechanisms: [first_price, second_price]
+agents: [truthful, hedge, exp3, q, ucb]
+rounds: 10000
+seeds: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+inference_unit: seed
+

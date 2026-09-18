@@ -15,18 +15,45 @@ Auction guarantees are normally stated for bidders who optimize directly, yet in
 \includegraphics[width=.92\linewidth]{figures/figure1_delegated_auction.png}
 \caption{Delegated-auction feedback loop}
 \end{figure}
+What happens to standard auction rankings when bidders delegate repeated bidding decisions to adaptive algorithms? This question is distinct from asking whether a bidder can compute a best response or whether a repeated game converges. Delegation inserts a policy-updating layer between value and bid. The auction determines payoffs and feedback; the learner converts that feedback into future play; and the induced policy distribution determines the auction's revenue and allocation path. Even when every algorithm has a familiar regret guarantee, the market designer observes a coupled finite-time system rather than a static profile of equilibrium strategies.
+
+The distinction matters institutionally. Advertising exchanges, procurement platforms, and electronic marketplaces increasingly interact with bidding systems operated on behalf of principals. A principal may care about surplus or budget delivery, while a platform may care about revenue, allocation, welfare, or stability. The algorithm's update rule is usually not chosen by the platform and may differ across bidders. Consequently, a mechanism that performs well against one adaptive population may perform differently when the same algorithms are assigned to different economic roles. The high-value bidder controls efficient allocation; the low-value bidder supplies competitive pressure. Which learner occupies each role can therefore affect mechanism performance even when values and auction rules are unchanged.
+
+Classical FPA and SPA comparisons provide a sharp laboratory. In a one-shot complete-information description, the payment rules differ transparently. Under adaptation, however, the payment rule also changes the utility gradient that drives subsequent bids. In SPA, a high bidder can move probability toward a winning high bid without necessarily increasing the price paid conditional on winning. In FPA, the same movement directly sacrifices surplus. SPA can therefore improve the speed and reliability with which the high-value bidder wins, while FPA can collect more revenue from the wins that occur. This is the paper's organizing economic mechanism.
+
 Auction theory typically assigns the act of bidding to an optimizing bidder. In deployed markets, however, the entity with value may delegate action selection to an adaptive system. The resulting bidder is not merely noisy or boundedly rational: its policy changes with the mechanism, feedback, opponent, and finite time available for learning. A mechanism can therefore rank differently depending on the objective used by the seller or platform and on which algorithm occupies which economic role.
 
 We compare first-price and second-price auctions in a deliberately controlled repeated environment. Two bidders have persistent private values, submit bids from finite grids, observe full-information counterfactual utilities, and update with a specified adaptive learner. The primary contrasts are seller revenue, the probability that the high-value bidder wins, and total welfare. The recurring empirical pattern is an objective conflict: FPA produces more revenue while SPA allocates more reliably to the high-value bidder and therefore produces more welfare.
 
 The paper makes six scoped contributions. First, a prospectively frozen Hedge result survives an untouched holdout: 54 of 75 environments meet the preregistered joint gate. Second, homogeneous validation shows the same primary conflict in all 25 environments for Hedge, canonical full-information FTPL, and regret matching. Third, ordered heterogeneous pairs show that learner identity and bidder role matter. Aggregate conflict signs remain positive, but gate support ranges from 2/25 to 19/25 and 29 environment-profile cells reverse the revenue ranking. Fourth, finite-horizon theory establishes an explicit conflict region for Hedge and extends it to a 4x3 action model. Fifth, two prospectively evaluated mechanism repairs fail their unchanged development requirements. Sixth, a certified explicit environment explains why the constant hybrid can fail: every movement toward first price raises revenue but reduces allocation efficiency, and the two safety requirements demand incompatible interpolation weights.
 
+The contributions can be stated more precisely. C1 - Frozen computational discovery. Development and holdout are prospectively separated, and the revenue-allocation conflict survives the untouched holdout. C2 - Finite-horizon theory. Exact Hedge recurrences establish a nonempty region in which FPA revenue exceeds SPA while SPA allocation and welfare exceed FPA. C3 - Action-space robustness. The result survives the addition of strategically meaningful intermediate actions, culminating in a certified 4x3 theorem. C4 - Cross-learner and heterogeneous evidence. Hedge, FTPL, and regret matching preserve the broad effect in homogeneous populations, while ordered mixtures show that learner identity and bidder role change magnitudes and sometimes the revenue sign. C5 - Prospective mechanism-design failures. Constant and bid-gap-adaptive interpolation families fail unchanged worst-case development gates. C6 - Scoped design limitation. A finite-horizon constant-hybrid witness has globally opposed revenue and allocation derivatives and incompatible safety requirements.
+
+The sequence matters. The project did not begin with an impossibility theorem and search for confirming simulations. It first identified and froze an empirical conflict, independently tested it, isolated a reduced theoretical mechanism, broadened the action sets, tested learner families and ordered mixtures, and then prospectively attempted two interpretable repairs. The first repair produced a clean Pareto frontier but no robust compromise. The second used an endogenous competitiveness signal that moved in the intended direction, yet still failed the same floors. Only then did the analysis formalize a narrow limitation for the constant family. Negative results are therefore part of the contribution rather than discarded failed prototypes.
+
+Figure 2 summarizes this evidentiary ladder. Each stage answers a different threat: software validity, selection bias, model-specificity, action-space relevance, learner dependence, role dependence, and mechanism repair. No stage licenses a claim beyond its stated scope.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=.92\linewidth]{figures/figure2_result_map.png}
+\caption{Evidence ladder from validation to design limitation}
+\end{figure}
 These findings do not establish that FPA is generally superior, that SPA is generally efficient under arbitrary learning, or that a delegation-proof mechanism exists. They instead show that learning algorithms become part of the market environment. Low external regret is not sufficient to preserve mechanism rankings, and even the identity of the learner assigned to the high-value bidder changes economic outcomes.
 
 \section{2. Related literature}
 The project sits at the intersection of repeated auctions, learning in games, algorithmic bidding, and robust mechanism design. Work on no-regret and mean-based learners establishes that repeated play can converge to outcomes that differ from one-shot equilibrium predictions. Research comparing first- and second-price auctions under learning already documents strategic shading, convergence effects, and welfare or revenue differences. We therefore do not claim novelty for the broad observation that adaptive bidding affects FPA and SPA.
 
-The closest intellectual neighbors include Kolumbus and Nisan on learning dynamics and auction outcomes; Aggarwal and coauthors on robust repeated auctions under heterogeneous buyer behavior; Feng and coauthors on learning agents in auctions; Hoy, Jain, and Wilkens on strategic and algorithmic participation; and Ipsen and Skoulakis on no-regret dynamics. Classical work on revenue-efficiency tradeoffs and robust revenue further cautions against interpreting a two-objective frontier as a new impossibility principle.
+The closest intellectual neighbors include Kolumbus and Nisan on learning dynamics and auction outcomes; Agrawal and coauthors on robust repeated auctions under heterogeneous buyer behavior; Feng and coauthors on no-regret bidding; and Braverman and coauthors on selling to a no-regret buyer. Classical work on revenue-efficiency tradeoffs and robust revenue further cautions against interpreting a two-objective frontier as a new impossibility principle.
+
+Three distinctions organize the comparison. First, this paper studies finite-horizon outcome rankings rather than only asymptotic convergence. The first rounds receive non-negligible weight, and uniform initialization creates economically meaningful initial mass on weak or aggressive bids. A mechanism can therefore improve allocation faster while earning less revenue even if later behavior becomes more concentrated. Second, the primary object is multi-objective mechanism comparison. Revenue, allocation, welfare, bidder surplus, and regret are recorded separately; a revenue improvement is not labeled a welfare improvement. Third, learner assignment is ordered. A market with Hedge controlling the high-value bidder and FTPL controlling the low-value bidder is a distinct environment from the reverse assignment.
+
+The repeated-auction literature provides several adjacent results but not an interchangeable theorem. Kolumbus and Nisan compare auctions populated by regret-minimizing agents and establish that learning dynamics can change familiar auction conclusions. Feng and coauthors analyze convergence of mean-based bidding algorithms. These results motivate the present setting and reduce the plausible novelty of any broad statement about learning in FPA and SPA. Our theoretical claims are correspondingly narrow: explicit finite-horizon Hedge regions and one constant-hybrid witness.
+
+Robust repeated-auction work asks how a seller can design mechanisms when buyer behavior is heterogeneous or learning-based. Agrawal, Daskalakis, Mirrokni, and Sivan, and related work on dynamic first-price auctions, show that behavioral heterogeneity is already a recognized design concern. Braverman and coauthors demonstrate that selling to a no-regret buyer changes mechanism-design possibilities. Aggarwal and coauthors study randomized truthful auctions for learning agents. The present paper differs by holding the classical mechanisms fixed for the primary comparison, treating ordered learner roles as measured market state, and prospectively evaluating simple repair families against multiple objectives.
+
+The constant payment interpolation is an elementary hybrid of the two endpoint rules, and we make no mechanism-invention claim. The contribution of M9 is the prospective minimax evaluation across homogeneous and heterogeneous adaptive populations; the contribution of M11 is the explicit finite-horizon environment in which the interpolation parameter moves revenue and allocation in opposite directions throughout its domain.
+
+Finally, classical revenue-efficiency tradeoffs and robust-auction impossibilities discipline interpretation. The paper's L1 result is not an impossibility for all mechanisms, all valuations, or all adaptive learners. Its value is explanatory: it converts one observed frontier into a rigorous local statement with transparent assumptions and an explicit counterexample boundary. The broader observational-collision evidence for bid-gap rules remains diagnostic because endogenous policies evolve differently after identical current signals.
 
 Our potentially distinct contribution is the combination of: a frozen holdout; homogeneous and ordered heterogeneous learner comparisons; a finite-horizon richer-action Hedge theorem; prospective failures of two interpretable repair families; and a narrowly certified constant-hybrid limitation. The mathematical stability bound resembles standard sensitivity reasoning for multiplicative weights; novelty, if any, lies mainly in the auction application and the empirical-theoretical chain. The claim registry in the repository records these boundaries claim by claim.
 
@@ -42,6 +69,12 @@ w_i^{t+1}(b)=w_i^t(b)\exp\{\eta_i u_i^t(b)\}.
 \]
 Every counterfactual action utility is evaluated against the opponent's realized or mean-field policy according to the frozen implementation. Learners begin with their protocol-specified uniform weights and independent random states where randomness is required.
 
+Hedge represents exponential weighting of cumulative counterfactual utilities. FTPL draws a fixed perturbation stream according to the frozen learner specification and selects the action maximizing cumulative utility plus perturbation. Regret matching places probability on actions in proportion to positive cumulative external regret, with the frozen fallback used when all positive regrets vanish. These definitions are deliberately canonical and fixed before cross-learner outcomes. The study does not tune each learner until it reproduces Hedge.
+
+The information environment is full information. After a round, a bidder can evaluate what its utility would have been for every admissible bid against the relevant opponent action or policy. This design isolates the effect of update rules and auction payments. It does not represent bandit feedback, delayed conversion feedback, budget pacing, or incomplete observation of rivals. Those are important extensions, but adding them here would confound the mechanism-ranking question and violate the frozen scope.
+
+The empirical action grid is substantially richer than the reduced theorem. Bids lie on the configured `.01` grid, subject to the protocol's no-overbid and environment rules. Persistent values are drawn from frozen valuation levels, and horizons vary across short, medium, and long cells. Learning-rate factors are varied through frozen environment strata. The theory instead uses small action sets to retain exact recurrences and rigorous interval propagation.
+
 For a profile (L) and environment (E), define
 
 \[
@@ -51,6 +84,15 @@ D_W=W_{SPA}-W_{FPA}.
 \]
 The objective conflict is (D_R>0) and (D_A>0). The empirical gates additionally require frozen economic magnitude and paired-seed uncertainty criteria; a positive sign alone is not a pass.
 
+For heterogeneous learners (X,Y), define the ordered profile ((X,Y)) with (X) controlling the high-value bidder. Role-swap effects are
+
+\[
+\Gamma_R(X,Y,E)=D_R((X,Y),E)-D_R((Y,X),E),
+\]
+and analogously for allocation. These contrasts do not estimate a universal causal effect of an algorithm. They measure how the mechanism comparison changes when learner identities are reassigned within the same frozen environment and parameterization.
+
+External regret is reported per bidder and mechanism as an algorithmic diagnostic. It is not an objective in the primary gate. A policy may have low regret relative to the finite action set while producing a mechanism outcome that misses an economically meaningful allocation threshold. This distinction becomes central in the regret-matching falsification.
+
 \section{4. Experimental design and validation}
 The simulator was unit-tested against hand calculations, infinite-horizon identities where available, and a separate finite-horizon validation phase. Scientific questions were frozen in Git before powered outcomes. Development, falsification, and holdout evidence are reported separately. The execution system assigns deterministic IDs, writes each result atomically, and resumes by validating existing IDs rather than recomputing completed work.
 
@@ -58,10 +100,44 @@ The Level-3 holdout contains 75 environment cells, each evaluated with 30 paired
 
 Rounds are not treated as independent statistical observations. Primary uncertainty is paired across frozen seeds within cells. Aggregate intervals for medians across cells use the deterministic bootstrap method frozen in the relevant protocol.
 
+\subsection{4.1 Prospective separation}
+The project uses Git commits and content hashes as scientific controls. Development configurations and candidate-selection rules were committed before powered outcomes. The Level-3 candidate statement was then frozen before targeted falsification and before the holdout was opened. Cross-learner environments, learner specifications, seeds, mechanisms, and gates were similarly frozen. Heterogeneous ordered profiles and overall classifications were committed before the 9,000-run campaign. The mechanism-design phases froze development/holdout partitions and success floors before evaluating interpolation rules.
+
+This discipline prevents three common forms of leakage: selecting a favorable environment after viewing the holdout, weakening an economic threshold after a near miss, and discarding a learner or role assignment after an inconvenient result. The 29 heterogeneous revenue reversals, regret-matching falsification failure, and two mechanism-development failures remain in the record for exactly this reason.
+
+\subsection{4.2 Simulator validation}
+The simulator was checked at three levels. Unit tests verify allocations, payments, utilities, ties, no-overbid handling, learner updates, deterministic IDs, and serialization. A finite-horizon certification phase compared implemented outcomes with independently specified reference calculations and horizon ladders. Later theory tests verify payoff matrices and recurrence identities for the 3x2, 4x2, and 4x3 reduced systems. The release suite contains 66 tests.
+
+\subsection{4.3 Execution integrity}
+Every powered unit has a deterministic identity derived from the frozen configuration, learner, mechanism, seed, and environment. Records are written atomically. Resume scans and validates existing IDs and executes only missing work. Completeness gates require the expected unique count and zero missing, duplicate, corrupt, unexpected, or identity-mismatched records before analysis. These are methodological safeguards, not evidence for the economic result by themselves.
+
+\subsection{4.4 Statistical interpretation}
+Within each cell, FPA and SPA use paired seeds. The gate uses paired normal 95\% confidence intervals for raw revenue and allocation contrasts together with economic magnitude floors. The reported aggregate intervals for medians across environments use deterministic bootstrap resampling of cell means. Neither procedure treats individual auction rounds as independent samples. The study reports logical rounds to document computation, not to inflate the inferential sample size.
+
+The fixed environment family is not a random sample from all possible auctions. Cell support rates therefore describe the frozen design rather than estimate a population frequency of market environments. Valuation and horizon stratification are descriptive secondary analyses unless explicitly included in a frozen gate.
+
+\subsection{4.4 Research workflow and evidentiary status}
+The evidence is organized as a sequence of gates rather than one pooled simulation exercise. Replication and simulator validation establish that the implementation reproduces benchmark behavior. Development identifies a candidate statement. Falsification attacks that statement in predeclared directions. A frozen holdout tests it without revising the candidate. Later learner campaigns ask whether the same economic contrast survives changes in update rule and ordered learner assignment. The mechanism phases begin only after the conflict has survived those tests, and use their own prospective development requirements. This separation is important because success at one gate does not retroactively validate another.
+
+Each major result therefore has a distinct status. The Level-3 holdout is confirmatory evidence for the frozen computational candidate. The finite-action Hedge statements are mathematical theorems within their assumptions. The FTPL, regret-matching, and heterogeneous results are computational validations, not corollaries of Hedge theory. The mechanism families are prospective development failures; their untouched holdout supplies no additional evidence. The M11 certificate is a theorem about one explicit environment, while its broader parameter audit is a counterexample map that limits generalization.
+
+The project also distinguishes logical work from statistical information. Hundreds of millions of auction rounds document the scale of the simulated dynamics, but they do not create hundreds of millions of independent observations. Randomness enters through paired seeds within frozen cells, and cells are designed environments rather than draws from a superpopulation. Claims are consequently phrased in terms of the evaluated family, certified parameter rectangles, and explicit witnesses.
+
+\subsection{4.5 Why the paired design matters}
+FPA and SPA are evaluated with matched environment identities and, where the learner is stochastic, matched seed indices. The paired contrasts remove variation attributable to the frozen environment and random stream before comparing mechanisms. Confidence procedures operate on those paired contrasts. This design is especially useful in long-horizon cells, where raw outcome variance can be much larger than the within-seed mechanism difference.
+
+Pairing does not solve every inferential problem. A seed can still generate an atypical trajectory, and the choice of environments determines external scope. That is why the primary gates combine uncertainty with an economic magnitude threshold and why independent-seed falsification is reported separately. In particular, regret matching's primary success and falsification weakness are both retained: neither is allowed to erase the other.
+
 \section{5. Main computational result}
 The frozen Level-3 candidate predicted that FPA would be more revenue-robust while SPA would be more allocation- and welfare-preserving. The development campaign selected this candidate without pooling evidence into the holdout. All eight preregistered falsification attacks passed.
 
 The untouched holdout gate passed in 54 of 75 environments. Sixty-eight cells met the FPA-revenue component; 50 jointly met the allocation component; and 54 jointly met the welfare component. Passing cells covered all five held-out valuations and all three horizons. This is a strong confirmatory survival result, but the broad mechanism contrast substantially overlaps prior work, so the original Level-3 overall novelty verdict remained mixed/partial.
+
+The gate combines direction, economic magnitude, and paired uncertainty. It does not simply count cells in which point estimates have convenient signs. The strongest joint-magnitude cell is not used as a substitute for the full result, and development and holdout estimates are never pooled. This matters because the discovery cell is expected to be optimistic after selection.
+
+The surface reveals an interior pattern rather than a uniform ranking. FPA revenue advantage is widespread, but the joint allocation or welfare component varies with valuation, horizon, and learning-rate factors. Theoretical reduction is therefore aimed at explaining the existence and direction of conflict, not fitting all 75 cell magnitudes. A proof that reproduces one sign mechanism should not be read as a structural estimation of the full simulation surface.
+
+The Level-3 conclusion is consequently two-part. Scientifically, the prospectively frozen phenomenon survives falsification and holdout. In novelty terms, the broad FPA/SPA learning comparison substantially overlaps prior work. The paper relies on the later theory, learner-role evidence, and negative design sequence for its potentially distinct contribution.
 
 \begin{figure}[ht]
 \centering
@@ -85,12 +161,32 @@ v\in[.31,.35],\quad \eta_H\in[.85,1.15],\quad \eta_L\in[.06,.14],
 \]
 then the same strict ranking holds for (H=2,\ldots,6). At (H=6), the minimum certified lower bounds are .1726472483 for revenue and .0166436423 for allocation.
 
+\begin{figure}[ht]
+\centering
+\includegraphics[width=.92\linewidth]{figures/figure3_theorem_regions.png}
+\caption{Certified finite-horizon theorem regions}
+\end{figure}
 An endogenous-history stability lemma bounds the change in core policies when off-core actions are added. If (d_t) is the sum of core-policy L1 distances, (e_t) total off-core mass, and \(\bar\eta\) the largest learning rate, then
 
 \[
 d_t\le 2\bar\eta\sum_{s<t}(1+\bar\eta)^{t-1-s}e_s.
 \]
 This yields a conditional sign-transfer theorem. Its generic constants are too loose under uniform initialization to prove the direct 4x3 result, which instead relies on the interval theorem. Neither theorem covers the full `.01` grid, FTPL, regret matching, or heterogeneous learners.
+
+\subsection{6.1 Economic intuition}
+Consider the high-value bidder's choice between bidding (v) and bidding one. In FPA, bidding one wins more often but yields zero surplus whenever it wins. Hedge therefore receives no persistent surplus advantage from concentrating on the most aggressive bid. In SPA, the bidder's own higher bid changes whether it wins but, conditional on winning against a lower bid, does not directly raise its payment. The high action can accumulate a relative utility advantage. Probability consequently moves toward actions that secure allocation more quickly in SPA.
+
+The low bidder moves for a related but distinct reason. Its action affects the price paid by the high bidder in SPA and its own surplus conditional on winning in both mechanisms. Slow low-bidder adaptation can preserve enough competitive pressure for FPA to collect revenue while the high bidder has not yet fully concentrated on the efficient action. The conflict is therefore finite-horizon: early and transitional policies matter.
+
+The welfare implication follows from persistent values. Since the object is always allocated under the modeled tie and bidding rules, per-round welfare is (v+(1-v)q_H). A strict increase in the high bidder's allocation probability produces a strict welfare increase whenever (v<1). No separate welfare dynamic is required for the theorem.
+
+\subsection{6.2 Proof architecture}
+The reduced model expresses each policy through adjacent log-weight ratios. Expected counterfactual utilities are affine functions of the opponent policy. Hedge increments each log ratio by the learning rate times an adjacent expected-utility difference, and softmax maps ratios back to action probabilities. These recurrences are exact; floating-point exploration is used only to locate candidate rectangles.
+
+Certification propagates outward-rounded intervals across a partition of the parameter box and across every horizon in the theorem. Each terminal lower bound must remain strictly positive. The 4x3 theorem is direct rather than inferred from the generic action-expansion lemma because uniform initialization gives new actions substantial first-round mass, making the generic coupling bound loose.
+
+\subsection{6.3 What the theorem does and does not explain}
+The theorem establishes that the conflict is not a two-round curiosity and not an artifact of exactly three high-bid actions. It explains how SPA can allocate better while FPA earns more. It does not establish the empirical frequency 54/75, long-horizon quantitative magnitudes, the complete bid grid, or behavior under FTPL and regret matching. Those remain computational findings.
 
 \section{7. Cross-learner validation}
 The homogeneous Level-5 campaign reused 25 frozen environments, 30 paired seeds, and the same economic gate. Hedge, FTPL, and regret matching each passed 25/25 cells. Their median revenue gaps were .104907, .109278, and .106654; median allocation gaps were .067163, .070892, and .070283. Pairwise sign agreement was 100\% for both objectives.
@@ -101,6 +197,12 @@ The homogeneous Level-5 campaign reused 25 frozen environments, 30 paired seeds,
 \caption{Homogeneous cross-learner conflict support}
 \end{figure}
 A separately frozen limited falsification qualified this result. FTPL passed all three independent attacks. Regret matching passed none of the three original joint magnitude gates: revenue and allocation signs remained positive, but allocation effects of .000344--.000924 fell below the .01 economic threshold. The evidence therefore supports qualitative cross-learner sign robustness more strongly than learner-independent magnitude robustness.
+
+The homogeneous result is unusually uniform at the primary stage: every valuation and horizon stratum passes for all three learners, and pairwise sign agreement is 100\%. That uniformity is useful but incomplete. The learners share full-information feedback, the same finite action environment, and one frozen hyperparameter scheme. The campaign asks whether the conflict is specific to exponential weighting, not whether every conceivable adaptive bidder behaves identically.
+
+FTPL provides the cleanest extension. Its perturb-and-optimize logic differs from Hedge's smooth exponential weighting, yet its median contrasts closely match Hedge and all three falsification attacks retain the joint gate. Regret matching is more delicate. Its primary cell support is perfect, and its average external regret is very low, but independent seeds sharply reduce the allocation magnitude at the representative attacks.
+
+This result separates two propositions that are often blurred. Positive direction can be stable while economic magnitude is seed-sensitive. Low regret can coexist with instability in a platform-level outcome contrast. Regret bounds compare realized utility with a fixed-action benchmark; they do not promise that two mechanisms generate similar allocation concentration or revenue paths. The paper therefore avoids using “no regret” as a synonym for “mechanism robust.”
 
 \section{8. Heterogeneous delegation}
 The heterogeneous study treats learner assignment as ordered: the first learner controls the high-value bidder. Six profiles were evaluated over the same 25 environments and 30 paired seeds.
@@ -122,6 +224,36 @@ Role swaps are economically material. H/F minus F/H has median revenue effect -.
 
 These results show that heterogeneous markets cannot be summarized by learner-family averages alone. Placing FTPL or RM in the high-value role typically increases FPA's revenue advantage while reducing SPA's allocation advantage. This is computational evidence within the frozen design, not a heterogeneous-learning theorem.
 
+\subsection{8.1 Role-swap effects}
+For H/F versus F/H, the median revenue role effect is -.195584, while the median allocation role effect is .019573. For H/R versus R/H, the corresponding values are -.230792 and .001900. For F/R versus R/F they are .152646 and -.027415. The sign and magnitude depend on which algorithm controls allocation-relevant upward movement and which supplies competitive pressure.
+
+Swapping learner identities changes the joint gate in 72\% of H/F environments and 68\% of both H/R and F/R environments. Revenue signs change in 36--40\% of environments, whereas allocation signs never change. This asymmetry suggests that SPA's allocation advantage is the more stable component of the conflict, while FPA's revenue advantage is sensitive to who adapts in each role.
+
+\subsection{8.2 Valuation and horizon}
+The 29 revenue reversals are concentrated at low-bidder values .7 and .9 in H/F, H/R, and R/F. In those cells SPA exceeds FPA on both measured revenue and allocation. The finding prevents a universal statement that FPA protects revenue under heterogeneous delegation. It also provides a concrete stress set for future mechanism design, although the present project does not reopen design after M11.
+
+Horizon effects are secondary to role effects in the frozen family. Allocation magnitudes often decline with horizon when FTPL or RM occupies the high-value role, while the direction remains positive. These patterns are descriptive and should not be elevated into new gates.
+
+\subsection{8.3 Regret matching by role}
+RM is not uniformly destabilizing. R/H is strong with 15/25 cells and the largest median revenue gap; H/R is direction-only with 2/25 and the smallest median revenue gap. F/R and R/F are both partial but exchange revenue magnitude for allocation magnitude. The primary quantitative weakness is especially visible when RM is the low bidder opposite Hedge. This is an association within the frozen assignment design, not a general causal theorem about RM.
+
+\subsection{8.4 Homogeneous versus heterogeneous populations}
+Homogeneous populations provide a useful baseline because both bidder roles apply the same update rule. Hedge/Hedge, FTPL/FTPL, and RM/RM each pass all 25 primary environments. This unanimity does not imply that the algorithms generate identical trajectories. It says that, under the frozen cell gate, their mechanism contrasts lie on the same side of the economic thresholds.
+
+Mixing learners changes that conclusion quantitatively. The median signs remain aligned with the central conflict across every ordered profile, but support ranges from 2/25 to 19/25. The change is not a simple penalty for heterogeneity: F/H and R/H are strong, while H/R is direction-only. What matters is the interaction between learner identity and economic role. The high-value learner governs how quickly allocation concentrates; the low-value learner influences competitive pressure and the price path. Exchanging those functions can improve one objective while weakening the other.
+
+The 29 revenue reversals sharpen this interpretation. They are not allocation failures: SPA still assigns the object to the high-value bidder more often. Instead, in selected high-valuation heterogeneous cells, SPA also earns more revenue. Thus the paper's shorthand that FPA “protects revenue” is an aggregate tendency, not a universal law. The absence of allocation reversals, by contrast, indicates that the allocation component is more stable within the evaluated family.
+
+\subsection{8.5 Regret is not an outcome guarantee}
+Regret matching passes all 25 homogeneous primary cells. In the independent-seed falsification addendum, however, it fails the frozen allocation-magnitude threshold in all three attacks even though the allocation direction remains positive. The relevant distinction is between optimizing a bidder's counterfactual utility and stabilizing a market-level contrast. External regret controls the former relative to a fixed action in the same mechanism; it does not bound the difference in allocation paths between two mechanisms whose feedback maps differ.
+
+This observation should not be read as a defect in regret matching. It is a warning about translating algorithmic guarantees into institutional conclusions. A seller choosing a payment rule cares about revenue and perhaps welfare, while the learner's guarantee concerns its principal's utility benchmark. These quantities can move differently. The same logic applies to Hedge and FTPL: low regret is useful diagnostic evidence, but it is neither necessary nor sufficient for a frozen economic gate.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=.92\linewidth]{figures/figure5_heterogeneous_roles.png}
+\caption{Heterogeneous ordered profiles and role-swap effects}
+\end{figure}
 \section{9. Can the designer repair the tradeoff?}
 The first prospective design family interpolates between second and first price:
 
@@ -136,6 +268,15 @@ Across 15 development environments, nine learner profiles, and five paired seeds
 \caption{Constant interpolation Pareto frontier}
 \end{figure}
 The second family makes alpha depend monotonically on the normalized top-two bid gap. It behaves as intended: weak competition produces larger gaps and more FPA-like prices. Yet all twelve frozen candidates miss both unchanged floors, and none qualifies for refinement. This is a prospective negative result for one interpretable family, not an impossibility for every gap-dependent rule.
+
+\subsection{9.1 Why the negative sequence is informative}
+The constant family is the obvious first repair because it preserves the allocation rule and interpolates continuously between the endpoints. If the conflict were merely an endpoint artifact, an interior alpha might retain enough FPA revenue and enough SPA allocation. The development frontier shows the opposite: average outcomes move smoothly, but worst-case revenue and allocation requirements select disjoint parts of the path.
+
+The failure also identifies state dependence. High-valuation stress cells prefer a more SPA-like compromise than low-valuation revenue-stress cells. A single global alpha cannot adapt. This diagnosis motivates the second family rather than an arbitrary search over nonlinear functions.
+
+The gap-adaptive mechanism uses the normalized spread between the top two bids as a scale-free measure of competition. When the gap is large, the mechanism moves toward FPA; when bids are close, it remains more SPA-like. The realized signal behaves exactly in this intended direction across valuation strata. Nevertheless, the hardest learner/environment cells still generate excessive worst-case regret for both objectives. A correct directional signal is therefore not sufficient for robust control.
+
+The holdout discipline makes the conclusion stronger. Neither family produced an eligible candidate under development, so neither was allowed to consume the untouched mechanism holdout. The paper does not turn a development near miss into a confirmatory claim, relax floors after inspection, or select a favorable stress subset.
 
 \section{10. Design limitation}
 The constant-family failure admits a narrow formal explanation.
@@ -155,6 +296,14 @@ Requiring at least the midpoint of endpoint revenues implies \(\alpha>.36\); req
 
 The theorem is deliberately local. Of 1,500 deterministic configurations audited, 109 violate at least one sampled global-monotonicity condition. At ((v,\eta_H,\eta_L,H)=(.1,2,0,9)), revenue becomes locally decreasing along part of the path. The result therefore establishes L1 constant-hybrid impossibility for one certified environment, not a universal auction or gap-only impossibility.
 
+\subsection{10.1 Why the derivatives oppose each other}
+Increasing alpha raises the fraction of the winner's own bid included in payment. Holding bids fixed, this directly raises revenue whenever the top bid exceeds the second bid. Under learning, the effect also changes future utility gradients. More first-price exposure penalizes aggressive high bids, slowing concentration on actions that guarantee the high-value bidder wins. The certified witness shows that the direct and dynamic effects have unambiguous signs along the entire endogenous path.
+
+The safety definition is intentionally primitive. Each objective must retain at least half of its endpoint advantage, measured by the midpoint of SPA and FPA endpoint outcomes in the same environment. It is not imported from the empirical M9 thresholds. Interval evaluation brackets the revenue midpoint crossing between .36 and .37 and the allocation midpoint crossing between .21 and .22. Strict monotonicity converts those brackets into incompatible requirements.
+
+\subsection{10.2 Scope discipline}
+The clean counterexample at ((.1,2,0,9)) demonstrates why the theorem is not broadened. Revenue need not be globally increasing for all reduced-model parameters. Likewise, substantial overlap between current bid-gap distributions does not prove that every gap-only mechanism fails: histories that share a current signal can induce different future policy trajectories. M11 therefore stops at L1.
+
 \begin{figure}[ht]
 \centering
 \includegraphics[width=.92\linewidth]{figures/figure6_constant_hybrid_limitation.png}
@@ -167,6 +316,32 @@ Learner identity is a market state. Homogeneous averages conceal large ordered-p
 
 The failed repairs also expose an observability problem. A single constant cannot respond to valuation regimes, while a bid-gap rule observes only a lossy endogenous statistic. In the reduced diagnostic, initial gap distributions for (v=.1) and (v=.9) overlap by (5/6) and have total variation (1/6). This supports an observational-collision mechanism but does not prove a gap-only impossibility because future policies diverge endogenously.
 
+\subsection{11.1 Implications for market design}
+Mechanism robustness under delegation is inherently multi-objective. A seller may prefer FPA's revenue protection, while a platform concerned with matching quality or downstream welfare may prefer SPA's allocation protection. A regulator or marketplace operator should not assume that low-regret bidding resolves this conflict. The relevant evaluation must measure the objectives directly under plausible learner populations.
+
+The heterogeneous results suggest that algorithm disclosure or auditing could matter even when private values remain unknown. The mechanism responds not only to bids but to how different algorithms transform payoff feedback into future bids. This does not imply that a platform should mandate a learner. It implies that stress testing should include ordered algorithm-role assignments rather than one representative bidder model.
+
+\subsection{11.2 Finite time as an economic primitive}
+The mechanism conflict is tied to adaptation speed. In a long-run equilibrium analysis, transitory policy mass may disappear. In deployed markets, horizons reset with campaigns, products, budgets, or model updates. Early rounds can therefore receive substantial economic weight. The finite-horizon theory formalizes this point without claiming that nine rounds literally matches a particular platform; the horizon is a tractable representation of limited adaptation time.
+
+\subsection{11.3 Negative design evidence}
+The M9/M10 sequence shows why an interpretable repair can fail even when average performance improves. Worst-case robustness across objectives and learner roles is more demanding than lying on an average Pareto frontier. The gap-adaptive rule additionally shows that a mechanism can respond correctly to an endogenous signal yet remain unable to infer the economically relevant regime. These failures narrow the design problem for future work without authorizing another mechanism search here.
+
+\subsection{11.4 Transparency and cumulative evidence}
+The repository preserves protocols, hashes, negative outcomes, counterexamples, and unopened holdouts. This matters because the final narrative could otherwise look inevitable. It was not: universal theorems failed, richer-action bounds were sometimes too loose, RM magnitude was unstable, heterogeneous revenue reversed in high-valuation cells, and both design families missed their gates. The contribution is credible only if those boundaries remain visible.
+
+\subsection{11.5 Institutional interpretation}
+The model is intentionally abstract, but its institutional lesson is concrete. A platform that changes a payment rule changes two objects at once: the transfer applied to the current allocation and the feedback landscape seen by bidding software. Static comparisons isolate the first effect. Delegated repeated bidding adds the second. When campaigns are short, models are updated, or budgets reset, the transition path can be economically material rather than a negligible prelude to equilibrium.
+
+The ordered-profile results also change what “representative bidder behavior” means. If a platform validates a mechanism using one learner for every participant, it may miss environments generated by mixed software stacks. Even using several algorithms one at a time is not equivalent to testing them together. The interaction is directional because the high-value and low-value roles have different consequences for efficiency and price formation.
+
+These findings support stress testing, not algorithm mandates. A platform need not observe source code or force bidders to use a particular update rule to acknowledge model risk. It can evaluate mechanisms against a documented family of plausible adaptive behaviors, preserve role order, and measure revenue and allocation separately. The present protocols illustrate such an evaluation but do not establish the correct regulatory or commercial policy for a specific market.
+
+\subsection{11.6 What a successful repair would need to observe}
+The failed mechanism families indicate two demands on future design. First, a repair must adapt to regimes in which the binding objective differs. A constant interpolation cannot do so. Second, its state variable must retain enough information about the relevant trajectory. The current bid gap is attractive because it is observable and scale-adjusted, but observational overlap means that similar gaps can arise in economically different regimes.
+
+A richer state could include recent bid histories, estimated adaptation rates, or role-specific concentration measures. Such rules would raise new concerns about manipulation, transparency, and identifiability. They would also constitute a new mechanism family requiring prospective development and holdout evidence. This paper therefore stops at the demonstrated limitation rather than proposing an untested repair in the discussion.
+
 \section{12. Limitations}
 The empirical environment has two bidders, persistent values, full-information feedback, finite discrete grids, and three classical learner families. It does not include deep reinforcement learning, language-model agents, asymmetric feedback, Bayesian value draws, or endogenous entry. Thirty seeds per primary cell do not eliminate uncertainty, and the heterogeneous campaign has no independent preregistered falsification addendum.
 
@@ -174,8 +349,24 @@ The theory is Hedge-specific and finite horizon. The richer-action theorem does 
 
 Finally, the work has not yet received independent proof review or external reproduction. The repository supplies a review packet and deterministic certificate commands, but readiness for review is not verification by another researcher.
 
+The computational environments are designed rather than sampled from a naturally occurring population. Reported support fractions should not be interpreted as estimates of how often real markets exhibit the conflict. The learning-rate and horizon strata improve coverage but do not identify a structural distribution of platform conditions.
+
+Full-information feedback is a strong assumption. Many deployed bidders observe only realized outcomes, delayed conversions, or censored market information. Learners under bandit feedback may adapt more slowly or differently. Addressing that issue would require a new preregistered study and is not inferred from the present results.
+
+The mechanism-design floors embody one conservative robustness criterion. Other designers may choose different tradeoffs. The correct conclusion is that the tested families fail the frozen requirements, not that every interior hybrid is useless. Likewise, the midpoint definition in M11 is a transparent theoretical safety notion rather than a uniquely normative objective.
+
+The statistical gates are also deliberately composite. They require direction, magnitude, and uncertainty simultaneously. A cell can therefore fail while retaining the predicted sign, as occurred in regret-matching falsification. Conversely, a large point estimate does not pass when paired uncertainty crosses the required boundary. Readers interested in alternative loss functions can recompute descriptive frontiers from the compact records, but doing so would constitute a new analysis rather than a reinterpretation of the preregistered verdict.
+
+The action-set results reduce, but do not eliminate, discretization concern. Moving from 3x2 to 4x3 demonstrates that the theorem is not generated solely by the smallest action set. The conditional perturbation bound explains how off-core probability could support a broader transfer, yet its generic constants are too loose under uniform initialization. The empirical `.01` grid therefore remains computational evidence rather than a theorem-backed approximation.
+
+Finally, the public package provides internal clean-room verification, not independence. The same research project wrote the implementation, certificates, and reproduction scripts. Independent researchers must still review the proofs, run the code in their own environment, and assess whether the designed environments are institutionally relevant. No editorial or referee judgment is simulated as an external endorsement.
+
+The paper does not model budgets, reserve prices, more than two bidders, stochastic values, entry, collusion, or strategic choice of learning algorithm. These omissions limit direct institutional prescriptions. They also make the current system transparent enough for exact recurrence analysis and controlled cross-learner comparisons.
+
 \section{13. Conclusion}
 Adaptive delegation changes auction comparison from a static equilibrium question into a finite-horizon systems problem. Across frozen simulations, FPA tends to protect revenue while SPA tends to protect allocation and welfare; the pattern crosses learner families but becomes role-sensitive in heterogeneous markets. Reduced-model theorems explain the sign mechanism, and a scoped certificate proves that constant interpolation can face irreconcilable objective requirements. Two natural repair families fail prospectively, so the project ends with a diagnosis rather than a claimed solution: learner identity and role belong in the market designer's state description, and robustness must be evaluated objective by objective.
+
+The paper's practical recommendation is methodological rather than mechanistic. Designers evaluating adaptive-agent markets should freeze multiple objectives, test more than one learner family, order heterogeneous roles explicitly, preserve negative designs, and distinguish regret from outcome robustness. The present evidence does not deliver a universal delegation-proof auction. It shows why obtaining one is difficult and supplies a reproducible foundation on which external researchers can test broader environments.
 
 \section{References}
 Agrawal, Daskalakis, Mirrokni, and Sivan (2018), "Robust Repeated Auctions under Heterogeneous Buyer Behavior," arXiv:1803.00494.
@@ -191,10 +382,6 @@ Feng et al. (2020), "Convergence Analysis of No-Regret Bidding Algorithms in Rep
 Kolumbus and Nisan (2021), "Auctions Between Regret-Minimizing Agents," arXiv:2110.11855.
 
 Roughgarden, Talgam-Cohen, and Yan (2019), "Robust Revenue through Enhanced Competition," Operations Research.
-
-Syrgkanis, "Efficiency of Mechanisms in Complex Markets," doctoral thesis.
-
-Tang and Wang (2026), "Robust Mechanism Design with Restricted Anonymous Information," arXiv:2602.20429.
 
 The editable bibliography is `paper/references.bib`. Metadata should be checked by the author against the linked sources before journal submission.
 

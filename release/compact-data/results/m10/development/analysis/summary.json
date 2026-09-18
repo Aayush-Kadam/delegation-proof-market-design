@@ -1,0 +1,17 @@
+{
+  "candidate": null,
+  "eligible_count": 0,
+  "integrity": {
+    "complete": true,
+    "config_hash": "c3de02229cd47af0703ee2cb3a8064e4a502063e99c6cb4e7ebdb52df1e79b19",
+    "corrupt": 0,
+    "duplicates": 0,
+    "expected": 4860,
+    "identity_mismatches": 0,
+    "missing": 0,
+    "unexpected": 0,
+    "unique_valid": 4860
+  },
+  "near_count": 0,
+  "refinement_triggered": false
+}

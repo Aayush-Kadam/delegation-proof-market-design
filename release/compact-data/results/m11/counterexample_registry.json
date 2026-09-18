@@ -1,0 +1,20 @@
+{
+  "deterministic_configurations_audited": 1500,
+  "sampled_monotonicity_passes": 1391,
+  "sampled_counterexamples": 109,
+  "clean_counterexample": {
+    "v": 0.1,
+    "eta_high": 2,
+    "eta_low": 0,
+    "H": 9,
+    "description": "Revenue derivative is negative near alpha=.25 and .5, rejecting a universal monotonic-revenue statement."
+  },
+  "gap_collision_diagnostic": {
+    "uniform_initialization_v_0.1_vs_0.9": {
+      "overlap_coefficient": 0.8333333333333333,
+      "total_variation": 0.1666666666666667,
+      "wasserstein_1": 0.1
+    },
+    "status": "DIAGNOSTIC_NOT_THEOREM"
+  }
+}

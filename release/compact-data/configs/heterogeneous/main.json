@@ -1,0 +1,202 @@
+{
+  "name": "HETEROGENEOUS_LEARNER_PRIMARY",
+  "profiles": [
+    ["hedge", "ftpl"],
+    ["ftpl", "hedge"],
+    ["hedge", "regret_matching"],
+    ["regret_matching", "hedge"],
+    ["ftpl", "regret_matching"],
+    ["regret_matching", "ftpl"]
+  ],
+  "mechanisms": [
+    "first_price",
+    "second_price"
+  ],
+  "bid_step": 0.01,
+  "tail_share": 0.1,
+  "seeds": [
+    6000,
+    6001,
+    6002,
+    6003,
+    6004,
+    6005,
+    6006,
+    6007,
+    6008,
+    6009,
+    6010,
+    6011,
+    6012,
+    6013,
+    6014,
+    6015,
+    6016,
+    6017,
+    6018,
+    6019,
+    6020,
+    6021,
+    6022,
+    6023,
+    6024,
+    6025,
+    6026,
+    6027,
+    6028,
+    6029
+  ],
+  "selection_rule": "Exact reuse of the 25 frozen Level-5 environments; no heterogeneous outcomes used.",
+  "environments": [
+    {
+      "v_low": 0.1,
+      "horizon": 5000,
+      "c_high": 1,
+      "c_low": 1
+    },
+    {
+      "v_low": 0.1,
+      "horizon": 5000,
+      "c_high": 0.5,
+      "c_low": 1
+    },
+    {
+      "v_low": 0.1,
+      "horizon": 25000,
+      "c_high": 1,
+      "c_low": 0.5
+    },
+    {
+      "v_low": 0.1,
+      "horizon": 25000,
+      "c_high": 1,
+      "c_low": 2
+    },
+    {
+      "v_low": 0.1,
+      "horizon": 100000,
+      "c_high": 2,
+      "c_low": 1
+    },
+    {
+      "v_low": 0.3,
+      "horizon": 5000,
+      "c_high": 1,
+      "c_low": 1
+    },
+    {
+      "v_low": 0.3,
+      "horizon": 5000,
+      "c_high": 0.5,
+      "c_low": 1
+    },
+    {
+      "v_low": 0.3,
+      "horizon": 25000,
+      "c_high": 1,
+      "c_low": 0.5
+    },
+    {
+      "v_low": 0.3,
+      "horizon": 25000,
+      "c_high": 1,
+      "c_low": 2
+    },
+    {
+      "v_low": 0.3,
+      "horizon": 100000,
+      "c_high": 2,
+      "c_low": 1
+    },
+    {
+      "v_low": 0.5,
+      "horizon": 5000,
+      "c_high": 1,
+      "c_low": 1
+    },
+    {
+      "v_low": 0.5,
+      "horizon": 5000,
+      "c_high": 0.5,
+      "c_low": 1
+    },
+    {
+      "v_low": 0.5,
+      "horizon": 25000,
+      "c_high": 1,
+      "c_low": 0.5
+    },
+    {
+      "v_low": 0.5,
+      "horizon": 25000,
+      "c_high": 1,
+      "c_low": 2
+    },
+    {
+      "v_low": 0.5,
+      "horizon": 100000,
+      "c_high": 2,
+      "c_low": 1
+    },
+    {
+      "v_low": 0.7,
+      "horizon": 5000,
+      "c_high": 1,
+      "c_low": 1
+    },
+    {
+      "v_low": 0.7,
+      "horizon": 5000,
+      "c_high": 0.5,
+      "c_low": 1
+    },
+    {
+      "v_low": 0.7,
+      "horizon": 25000,
+      "c_high": 1,
+      "c_low": 0.5
+    },
+    {
+      "v_low": 0.7,
+      "horizon": 25000,
+      "c_high": 1,
+      "c_low": 2
+    },
+    {
+      "v_low": 0.7,
+      "horizon": 100000,
+      "c_high": 2,
+      "c_low": 1
+    },
+    {
+      "v_low": 0.9,
+      "horizon": 5000,
+      "c_high": 1,
+      "c_low": 1
+    },
+    {
+      "v_low": 0.9,
+      "horizon": 5000,
+      "c_high": 0.5,
+      "c_low": 1
+    },
+    {
+      "v_low": 0.9,
+      "horizon": 25000,
+      "c_high": 1,
+      "c_low": 0.5
+    },
+    {
+      "v_low": 0.9,
+      "horizon": 25000,
+      "c_high": 1,
+      "c_low": 2
+    },
+    {
+      "v_low": 0.9,
+      "horizon": 100000,
+      "c_high": 2,
+      "c_low": 1
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "name": "L3_DEVELOPMENT",
+  "mechanisms": ["first_price", "second_price"],
+  "v_high": 1.0,
+  "v_low": [0.2, 0.4, 0.6, 0.8],
+  "horizons": [10000, 50000, 200000],
+  "rate_factors": [[1.0, 1.0], [0.5, 1.0], [1.0, 0.5], [1.0, 2.0], [2.0, 1.0]],
+  "base_rate": "sqrt(log(K_i)/H)",
+  "bid_step": 0.01,
+  "seeds": {"start": 0, "count": 30},
+  "tail_share": 0.10,
+  "feedback": "full_expected_counterfactual",
+  "overbidding": false,
+  "tie_breaking": "uniform"
+}

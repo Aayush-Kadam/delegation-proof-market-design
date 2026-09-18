@@ -1,0 +1,16 @@
+{
+  "phase": "m9_delegation_robust_mechanism_design",
+  "base_commit": "c2204effe669c890497eac009786fb93cd6bb61b",
+  "development_runs": 7425,
+  "development_logical_rounds": 190575000,
+  "prospective_holdout_runs_for_three_mechanisms": 8100,
+  "prospective_holdout_logical_rounds": 336150000,
+  "initial_workers": 4,
+  "files": {
+    "configs/m9/design.json": "C62DC664E75F0F55789C6CC3070373C20621CC51DFA93D62330870B1984F4DE9",
+    "docs/m9_mechanism_protocol.md": "6750CD5C14D8A702E227520460A50DE36D2E1678B6D9C151673A7CD6BA084DBC",
+    "docs/m9_literature_audit.md": "6B1AEA2B74C9CD189C69D9A3B400B076D2845C8E7DE98283556240764C06CD5C",
+    "src/delegation_market/m9.py": "BCF727D949449D87E94F85BA744F77DA5046353C466CBAE3659471C16AE8062B",
+    "tests/test_m9.py": "D374FF3EA266CD8EF60A63D608F64209DA16173AB879FB19CF039966B759D2AD"
+  }
+}

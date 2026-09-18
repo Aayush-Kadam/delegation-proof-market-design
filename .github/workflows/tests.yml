@@ -9,4 +9,9 @@ jobs:
         with: {python-version: '3.11'}
       - run: pip install -e '.[test]'
       - run: pytest -q
-
+      - name: Quick theorem check
+        run: python -c "from pathlib import Path; from delegation_market.m11_interval import certify; certify(Path('/tmp/m11-quick.json'), parts=50)"
+      - name: Build manuscript and checksums
+        run: python scripts/build_release_artifacts.py
+      - name: Source sanity
+        run: python -c "from pathlib import Path; p=Path('paper/manuscript.md').read_text(); assert '(1/3,4,0,9)' in p.replace(' ', ''); assert 'eta_L=.9' not in p"

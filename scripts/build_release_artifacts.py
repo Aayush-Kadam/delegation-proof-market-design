@@ -58,6 +58,94 @@ def conceptual_figure() -> Path:
     ax.text(.49, .25, "Mechanism changes feedback, payoffs, and future policies", ha="center", fontsize=10, color="#5d4037")
     fig.tight_layout()
     fig.savefig(path, dpi=220, bbox_inches="tight")
+    fig.savefig(path.with_suffix(".pdf"), bbox_inches="tight")
+    plt.close(fig)
+    return path
+
+
+def result_map_figure() -> Path:
+    FIGURES.mkdir(parents=True, exist_ok=True)
+    path = FIGURES / "figure2_result_map.png"
+    labels = [
+        "Replication and simulator validation",
+        "Frozen development / holdout",
+        "Finite-horizon Hedge theory",
+        "Richer action spaces",
+        "Homogeneous cross-learner validation",
+        "Heterogeneous learner roles",
+        "Prospective mechanism repair attempts",
+        "Scoped constant-hybrid limitation",
+    ]
+    fig, ax = plt.subplots(figsize=(8.4, 7.0))
+    ax.axis("off")
+    ys = list(reversed([.10 + i * .112 for i in range(len(labels))]))
+    for i, (label, y) in enumerate(zip(labels, ys)):
+        fc = "#edf3f8" if i < 6 else "#f7eee9"
+        ec = "#29577a" if i < 6 else "#8b4a36"
+        ax.text(.5, y, label, ha="center", va="center", fontsize=10.3,
+                bbox=dict(boxstyle="round,pad=.55", fc=fc, ec=ec, lw=1.35))
+        if i < len(labels) - 1:
+            ax.annotate("", xy=(.5, ys[i + 1] + .035), xytext=(.5, y - .035),
+                        arrowprops=dict(arrowstyle="->", lw=1.25, color="#5c6770"))
+    ax.set_title("Evidence ladder: discovery, generalization, and design limitation",
+                 fontsize=13, color="#17324d", pad=14)
+    fig.tight_layout()
+    fig.savefig(path, dpi=240, bbox_inches="tight")
+    fig.savefig(path.with_suffix(".pdf"), bbox_inches="tight")
+    plt.close(fig)
+    return path
+
+
+def theorem_regions_figure() -> Path:
+    FIGURES.mkdir(parents=True, exist_ok=True)
+    path = FIGURES / "figure3_theorem_regions.png"
+    fig, axes = plt.subplots(1, 2, figsize=(9.2, 4.2), sharey=True)
+    panels = [
+        (axes[0], (.30, .36), (.8, 1.2), r"$3\times2$: $H=2,\ldots,9$", r"$\eta_L\in[.05,.15]$"),
+        (axes[1], (.31, .35), (.85, 1.15), r"$4\times3$: $H=2,\ldots,6$", r"$\eta_L\in[.06,.14]$"),
+    ]
+    for ax, vr, er, title, note in panels:
+        ax.add_patch(plt.Rectangle((vr[0], er[0]), vr[1]-vr[0], er[1]-er[0],
+                                   fc="#b9d6e8", ec="#29577a", lw=2))
+        ax.scatter([1/3], [1.0], marker="*", s=115, color="#a33d2d", zorder=3)
+        ax.set_xlim(.285, .375); ax.set_ylim(.72, 1.28)
+        ax.set_xlabel(r"Low value $v$"); ax.set_title(title, fontsize=11)
+        ax.text(.5, -.20, note, transform=ax.transAxes, ha="center", fontsize=9)
+        ax.grid(alpha=.18)
+    axes[0].set_ylabel(r"High-bidder rate $\eta_H$")
+    fig.suptitle("Certified closed parameter regions for the delegation conflict",
+                 color="#17324d", fontsize=13)
+    fig.tight_layout()
+    fig.savefig(path, dpi=240, bbox_inches="tight")
+    fig.savefig(path.with_suffix(".pdf"), bbox_inches="tight")
+    plt.close(fig)
+    return path
+
+
+def heterogeneous_roles_figure() -> Path:
+    FIGURES.mkdir(parents=True, exist_ok=True)
+    path = FIGURES / "figure5_heterogeneous_roles.png"
+    profiles = ["H/F", "F/H", "H/R", "R/H", "F/R", "R/F"]
+    support = [13, 19, 2, 15, 14, 11]
+    gamma_r = [-.195584, -.230792, .152646]
+    gamma_a = [.019573, .001900, -.027415]
+    pairs = ["H vs F", "H vs R", "F vs R"]
+    fig, axes = plt.subplots(1, 2, figsize=(10, 4.5))
+    axes[0].bar(profiles, support, color="#4d82a8")
+    axes[0].axhline(15, ls="--", color="#555", lw=1, label="Strong threshold")
+    axes[0].set_ylim(0, 25.8); axes[0].set_ylabel("Joint-gate environments (of 25)")
+    axes[0].set_title("Ordered heterogeneous profiles")
+    axes[0].legend(frameon=False, fontsize=8)
+    x = list(range(3)); width = .34
+    axes[1].bar([i-width/2 for i in x], gamma_r, width, label=r"Median $\Gamma_R$", color="#a4513c")
+    axes[1].bar([i+width/2 for i in x], gamma_a, width, label=r"Median $\Gamma_A$", color="#3d7f9d")
+    axes[1].axhline(0, color="#444", lw=.8)
+    axes[1].set_xticks(x, pairs); axes[1].set_title("Role-swap effects")
+    axes[1].legend(frameon=False, fontsize=8)
+    fig.suptitle("Learner identity and bidder role affect mechanism performance", color="#17324d", fontsize=13)
+    fig.tight_layout()
+    fig.savefig(path, dpi=240, bbox_inches="tight")
+    fig.savefig(path.with_suffix(".pdf"), bbox_inches="tight")
     plt.close(fig)
     return path
 
@@ -90,6 +178,7 @@ def limitation_figure() -> Path:
     ax1.legend(lines, [l.get_label() for l in lines], loc="center right", frameon=False)
     fig.tight_layout()
     fig.savefig(path, dpi=220, bbox_inches="tight")
+    fig.savefig(path.with_suffix(".pdf"), bbox_inches="tight")
     plt.close(fig)
     return path
 
@@ -250,6 +339,9 @@ def checksums() -> None:
 
 def main() -> None:
     conceptual_figure()
+    result_map_figure()
+    theorem_regions_figure()
+    heterogeneous_roles_figure()
     limitation_figure()
     md_path = PAPER / "manuscript.md"
     md = md_path.read_text(encoding="utf-8")

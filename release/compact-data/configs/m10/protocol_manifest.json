@@ -1,0 +1,17 @@
+{
+  "phase": "m10_gap_adaptive_mechanism",
+  "base_commit": "37d808ab69fa18c1e22c18a57e6cc9f9a043fab1",
+  "coarse_candidates": 12,
+  "development_runs": 4860,
+  "development_logical_rounds": 124740000,
+  "holdout_status": "sealed",
+  "files": {
+    "configs/m10/design.json": "C3DE02229CD47AF0703EE2CB3A8064E4A502063E99C6CB4E7EBDB52DF1E79B19",
+    "docs/m10_gap_adaptive_protocol.md": "81E9D7F4A15BE4CD4262A6CB859932A84880E0B646E1901C7611839E26F147C8",
+    "docs/m10_literature_audit.md": "5D0ED546E95304C00F5D9CFA9A2C73D207B8C48AB0BE63756E9FEA97894208AE",
+    "src/delegation_market/m10.py": "F33EA1A75B52B4BA395190A8B863DCA0FD6F0B210D9E3B3F8831F53AE07F7616",
+    "src/delegation_market/mechanisms.py": "A5F1708C62458BE1312D98CD695BF531800E757CCAC24939BB17F7848780FCC0",
+    "src/delegation_market/simulation.py": "94F0D3FD4C202B8566BF185250E9679ACE660157BC96F2EB14F7FCA28F8F4BFA",
+    "tests/test_m10.py": "FF560653BC68BFD2E6DEBE1A28E8C5815B243AE1456B680371D6D82F123A631B"
+  }
+}

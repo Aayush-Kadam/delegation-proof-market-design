@@ -1,0 +1,13 @@
+{
+  "name": "LEVEL_5_LIMITED_FALSIFICATION",
+  "learners": ["ftpl", "regret_matching"],
+  "mechanisms": ["first_price", "second_price"],
+  "bid_step": 0.01,
+  "tail_share": 0.1,
+  "seeds": [4000, 4001, 4002, 4003, 4004, 4005, 4006, 4007, 4008, 4009],
+  "environments": [
+    {"v_low": 0.5, "horizon": 25000, "c_high": 1, "c_low": 0.5},
+    {"v_low": 0.55, "horizon": 25000, "c_high": 1, "c_low": 0.5},
+    {"v_low": 0.5, "horizon": 50000, "c_high": 1, "c_low": 0.5}
+  ]
+}
