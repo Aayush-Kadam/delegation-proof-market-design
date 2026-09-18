@@ -58,6 +58,10 @@
 | M10-GAH-HOLDOUT | M9 mechanism holdout requires an eligible frozen M10 candidate | UNOPENED | `docs/M10_GAP_ADAPTIVE_MECHANISM_STATUS.md` | N/A |
 | M10-GAH-REDTEAM | Red team requires holdout success | NOT RUN | `docs/M10_GAP_ADAPTIVE_MECHANISM_STATUS.md` | N/A |
 | M10-GAH-THEORY | Candidate-specific theory requires empirical candidate success | NOT ATTEMPTED | `docs/M10_GAP_ADAPTIVE_MECHANISM_STATUS.md` | N/A |
+| TH-M11-001 | At the explicit 4x3 Hedge witness, constant-hybrid revenue strictly increases and allocation strictly decreases throughout alpha in `[0,1]` | THEOREM | `results/m11/constant_alpha_certificate.json`, `docs/m11_design_limitation_proof.md` | Targeted audit complete |
+| TH-M11-002 | No constant alpha attains both half-endpoint revenue and allocation safety at the witness | IMPOSSIBILITY / L1 | `docs/m11_design_limitation_proof.md` | Possibly distinct delegated-learning result |
+| TH-M11-003 | Revenue monotonicity holds for all reduced-model parameters | DISPROVEN | `results/m11/counterexample_registry.json` | Counterexample audit |
+| TH-M11-004 | Gap-only observable rules are impossible across the validated environments | CONJECTURE / PARTIAL | Gap overlap diagnostic; no endogenous-history theorem | Targeted audit incomplete |
 
 V1 and V2 both leave historical Level 2 MIXED because fewer than two targets strictly passed their prospective criteria. Separately, M2.5 certifies the simulator for the finite-horizon domain stated in `docs/level_3_readiness.md`; it does not revise Level 2.
 
