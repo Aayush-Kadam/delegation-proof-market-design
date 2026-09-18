@@ -8,6 +8,7 @@ from delegation_market.agents import HedgeAgent
 from delegation_market.m10 import run_id, run_job, tasks
 from delegation_market.mechanisms import gap_adaptive_alpha, run_auction
 from delegation_market.simulation import counterfactual_rewards
+from delegation_market.m10_analysis import cvar
 
 ROOT=Path(__file__).resolve().parents[1];CONFIG=ROOT/"configs/m10/design.json"
 
@@ -44,3 +45,7 @@ def test_tiny_job_records_diagnostics_and_accounting():
     spec=dict(tasks(ROOT,CONFIG)[0],horizon=10);row=run_job(spec)
     assert 0<=row["normalized_gap"]<=1;assert spec["a"]<=row["realized_alpha"]<=1
     assert abs(row["welfare"]-row["revenue"]-row["bidder_surplus"])<1e-12
+
+
+def test_cvar_selects_upper_tail():
+    assert cvar([0,1,2,3,4],.4)==3.5
