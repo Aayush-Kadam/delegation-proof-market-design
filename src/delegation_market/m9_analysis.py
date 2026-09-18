@@ -139,8 +139,8 @@ def analyze(root: Path, config: Path, stage: str, alphas=None):
 
 def _figures(frontier, cells, roles, out, candidate):
     plt.figure(figsize=(7, 5))
-    plt.plot(frontier.allocation_mean, frontier.revenue_mean, "o-")
-    for row in frontier.itertuples(): plt.annotate(f"{row.alpha:g}", (row.allocation_mean, row.revenue_mean))
+    plt.plot(frontier.high_win_mean, frontier.revenue_mean, "o-")
+    for row in frontier.itertuples(): plt.annotate(f"{row.alpha:g}", (row.high_win_mean, row.revenue_mean))
     plt.xlabel("Mean allocation efficiency"); plt.ylabel("Mean seller revenue"); plt.tight_layout()
     plt.savefig(out / "M9-F1_pareto.png", dpi=180); plt.close()
     plt.figure(figsize=(7, 5)); plt.plot(frontier.alpha, frontier.q_joint_worst, "o-")
