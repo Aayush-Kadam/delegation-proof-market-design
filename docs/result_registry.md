@@ -53,6 +53,11 @@
 | M9-HOLDOUT | Holdout evaluation requires an eligible frozen candidate | NOT OPENED | `docs/M9_MECHANISM_STATUS.md` | N/A |
 | M9-REDTEAM | Red team requires a D2-or-higher holdout result | NOT RUN | `docs/M9_MECHANISM_STATUS.md` | N/A |
 | M9-THEORY | Candidate-specific hybrid theory requires a successful candidate | NOT ATTEMPTED | `docs/M9_MECHANISM_STATUS.md` | N/A |
+| M10-GAH-DEV | The normalized bid-gap rule activates as intended across valuation strata but no coarse candidate clears either frozen worst-case floor | G0 / DEVELOPMENT FAILURE | `results/m10/development/analysis/summary.json` | Exact-form novelty unresolved; prospective application audit complete |
+| M10-GAH-REFINE | No candidate is eligible or within `.02` of both safety floors | NOT TRIGGERED | `results/m10/development/analysis/coarse_frontier.csv` | N/A |
+| M10-GAH-HOLDOUT | M9 mechanism holdout requires an eligible frozen M10 candidate | UNOPENED | `docs/M10_GAP_ADAPTIVE_MECHANISM_STATUS.md` | N/A |
+| M10-GAH-REDTEAM | Red team requires holdout success | NOT RUN | `docs/M10_GAP_ADAPTIVE_MECHANISM_STATUS.md` | N/A |
+| M10-GAH-THEORY | Candidate-specific theory requires empirical candidate success | NOT ATTEMPTED | `docs/M10_GAP_ADAPTIVE_MECHANISM_STATUS.md` | N/A |
 
 V1 and V2 both leave historical Level 2 MIXED because fewer than two targets strictly passed their prospective criteria. Separately, M2.5 certifies the simulator for the finite-horizon domain stated in `docs/level_3_readiness.md`; it does not revise Level 2.
 
