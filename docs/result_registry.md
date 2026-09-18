@@ -40,6 +40,14 @@
 | R-L5-FTPL | Full-information FTPL reproduces the joint conflict in all 25 primary cells and all 3 limited falsification attacks | CONFIRMED | `results/level_05/analysis/summary.json`; falsification analysis | Cross-learner computational evidence |
 | R-L5-RM | External regret matching passes all 25 primary cells but misses the allocation magnitude threshold in 3/3 independent-seed falsification attacks | PARTIAL | primary and falsification cell summaries | Learner/seed sensitivity |
 | R-L5-AGG | The frozen primary Level-5 gate yields strong cross-learner generalization, qualified by regret-matching falsification instability | CONFIRMED / QUALIFIED | `docs/LEVEL_5_STATUS.md` | Theory not extended beyond Hedge |
+| R-HET-HF | Hedge high / FTPL low preserves positive aggregate conflict directions but passes 13/25 cells | PARTIAL | `results/heterogeneous/analysis/summary.json` | Ordered-role computation |
+| R-HET-FH | FTPL high / Hedge low passes 19/25 cells | STRONG | `results/heterogeneous/analysis/summary.json` | Ordered-role computation |
+| R-HET-HR | Hedge high / RM low passes 2/25 cells with positive medians | DIRECTION-ONLY | `results/heterogeneous/analysis/summary.json` | Ordered-role computation |
+| R-HET-RH | RM high / Hedge low passes 15/25 cells | STRONG | `results/heterogeneous/analysis/summary.json` | Ordered-role computation |
+| R-HET-FR | FTPL high / RM low passes 14/25 cells | PARTIAL | `results/heterogeneous/analysis/summary.json` | Ordered-role computation |
+| R-HET-RF | RM high / FTPL low passes 11/25 cells | PARTIAL | `results/heterogeneous/analysis/summary.json` | Ordered-role computation |
+| R-HET-ROLE | Swapping learner roles changes the joint gate in 68-72% of environments and the revenue sign in 36-40% | CONFIRMED | `results/heterogeneous/analysis/summary.json` | Possibly distinct auction application |
+| R-HET-AGG | Five profiles are strong/partial, one direction-only, and none reverses its aggregate median; 29 cell-level revenue reversals remain | HETEROGENEOUS ROBUSTNESS | `docs/HETEROGENEOUS_LEARNER_STATUS.md` | Targeted audit complete |
 
 V1 and V2 both leave historical Level 2 MIXED because fewer than two targets strictly passed their prospective criteria. Separately, M2.5 certifies the simulator for the finite-horizon domain stated in `docs/level_3_readiness.md`; it does not revise Level 2.
 
