@@ -1,8 +1,9 @@
 cff-version: 1.2.0
-message: "If you use this research software, cite this repository release."
-title: "Delegation-Proof Market Design"
+message: "Please cite the archived release; author metadata and DOI must be completed before publication."
+title: "Delegation-Proof Market Design: Revenue-Allocation Tradeoffs under Adaptive Bidding"
 type: software
-version: 0.1.0
-date-released: 2026-09-15
+version: 1.0.0
+date-released: 2026-09-18
+authors:
+  - name: "AUTHOR NAME TO BE SUPPLIED"
 license: MIT
-

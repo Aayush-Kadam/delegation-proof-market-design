@@ -1,7 +1,14 @@
 .venv/
 __pycache__/
 .pytest_cache/
+docs/RECOVERY_STATUS.md
+work_level3_development.stderr.log
+work_level3_development.stdout.log
+work_level3_falsification.stderr.log
+work_level3_falsification.stdout.log
+work_level3_holdout.stderr.log
+work_level3_holdout.stdout.log
+tmp/
 *.pyc
 results/raw/*
 !results/raw/.gitkeep
-

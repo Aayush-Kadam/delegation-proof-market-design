@@ -1,5 +1,46 @@
 # Delegation-Proof Market Design
 
+Research package for **Delegation-Proof Market Design: Revenue-Allocation Tradeoffs under Adaptive Bidding**.
+
+## Main finding
+
+Under finite-horizon adaptive bidding, first-price auctions tend to protect seller revenue while second-price auctions tend to protect allocation efficiency and welfare. The result survives a frozen Hedge holdout, homogeneous validation with Hedge/FTPL/regret matching, and ordered heterogeneous learner experiments, although heterogeneous high-valuation cells contain revenue-ranking reversals. Reduced-model Hedge theorems explain the conflict. Two natural hybrid repairs fail prospective development gates, and a scoped theorem proves incompatible constant-hybrid safety requirements in one explicit environment.
+
+No successful delegation-proof mechanism or universal impossibility is claimed.
+
+## Quick start
+
+```text
+python -m venv .venv
+.venv\Scripts\python -m pip install -r requirements-lock.txt
+.venv\Scripts\python -m pip install -e .
+python -m pytest -q
+python scripts/build_release_artifacts.py
+```
+
+See `REPRODUCIBILITY.md` for exact theorem and result regeneration instructions.
+
+## Repository map
+
+- `src/delegation_market/`: mechanisms, learners, runners, theory, and certificate code
+- `configs/`: frozen scientific configurations
+- `docs/`: protocols, status reports, proofs, claim registry, and review packets
+- `results/`: manifests, compact results, figures, certificates, and local run records
+- `paper/`: editable manuscript source, bibliography, and final PDF
+- `tests/`: software and mathematical regression tests
+
+## Scientific entry points
+
+- Claims: `docs/FINAL_CLAIM_REGISTRY.md`
+- Results: `RESULTS_INDEX.md`
+- Final status: `docs/FINAL_PROJECT_STATUS.md`
+- Independent reproduction: `docs/INDEPENDENT_REPRODUCTION_GUIDE.md`
+- External proof review: `docs/EXTERNAL_PROOF_REVIEW_PACKET.md`
+
+## Release boundaries
+
+The unused M9 mechanism holdout remains unopened. Historical local recovery logs are excluded from the public package. Large raw campaign records should be archived as compressed, checksummed data rather than expanded into a GitHub release.
+
 ## Question
 
 What survives when participants outsource repeated auction decisions to adaptive algorithms?
