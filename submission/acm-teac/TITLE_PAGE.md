@@ -1,6 +1,6 @@
 # Delegation-Proof Market Design: Revenue–Allocation Tradeoffs under Adaptive Bidding
 
-Author: [AUTHOR NAME TO VERIFY]
+Author: Aayush Kadam
 
 Affiliation: [AFFILIATION TO VERIFY]
 

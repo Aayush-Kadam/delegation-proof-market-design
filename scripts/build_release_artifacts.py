@@ -190,13 +190,13 @@ def latex_escape(text: str) -> str:
     return text
 
 
-def markdown_to_latex(md: str) -> str:
+def markdown_to_latex(md: str, author: str = "Aayush Kadam") -> str:
     out = [
         r"\documentclass[11pt]{article}",
         r"\usepackage[margin=1in]{geometry}",
         r"\usepackage{amsmath,amssymb,booktabs,graphicx,hyperref,longtable}",
         r"\title{Delegation-Proof Market Design: Revenue--Allocation Tradeoffs under Adaptive Bidding}",
-        r"\author{[AUTHOR NAME TO BE SUPPLIED]}",
+        r"\author{" + author + "}",
         r"\date{September 2026}", r"\begin{document}", r"\maketitle",
     ]
     in_display = False
@@ -306,10 +306,10 @@ def parse_markdown(md: str):
     return story
 
 
-def build_pdf(md: str) -> None:
+def build_pdf(md: str, output: Path = PDF, author: str = "Aayush Kadam") -> None:
     def decorate(canvas, doc):
         canvas.saveState()
-        canvas.setAuthor("AUTHOR NAME TO BE SUPPLIED")
+        canvas.setAuthor(author)
         canvas.setTitle("Delegation-Proof Market Design: Revenue-Allocation Tradeoffs under Adaptive Bidding")
         canvas.setFont("Helvetica", 8)
         canvas.setFillColor(colors.HexColor("#5c6770"))
@@ -317,7 +317,7 @@ def build_pdf(md: str) -> None:
         canvas.drawRightString(7.78*inch, .45*inch, f"{doc.page}")
         canvas.restoreState()
 
-    doc = BaseDocTemplate(str(PDF), pagesize=LETTER, leftMargin=.72*inch, rightMargin=.72*inch,
+    doc = BaseDocTemplate(str(output), pagesize=LETTER, leftMargin=.72*inch, rightMargin=.72*inch,
                           topMargin=.68*inch, bottomMargin=.65*inch, title="Delegation-Proof Market Design")
     frame = Frame(doc.leftMargin, doc.bottomMargin, doc.width, doc.height, id="normal")
     doc.addPageTemplates([PageTemplate(id="paper", frames=[frame], onPage=decorate)])
@@ -354,6 +354,14 @@ def main() -> None:
     md_path.write_text(md, encoding="utf-8")
     (PAPER / "main.tex").write_text(markdown_to_latex(md), encoding="utf-8")
     build_pdf(md)
+    anonymous = md.replace(
+        "**Aayush Kadam**\n\n[AFFILIATION TO VERIFY] · [ORCID TO VERIFY] · [CORRESPONDENCE EMAIL TO VERIFY]",
+        "**Anonymous manuscript**",
+        1,
+    )
+    anonymous_pdf = ROOT / "submission" / "acm-teac" / "anonymous-manuscript.pdf"
+    anonymous_pdf.parent.mkdir(parents=True, exist_ok=True)
+    build_pdf(anonymous, anonymous_pdf, "Anonymous")
     checksums()
     print(PDF)
 

@@ -34,7 +34,7 @@ No universal auction impossibility, full-grid theorem, heterogeneous-learning th
 
 ## Release status
 
-The v1.1.0 submission package is release ready. No GitHub remote, GitHub Release, archival DOI, or external verification is claimed. Exact publication and archive steps are in `docs/GITHUB_RELEASE_PLAN.md` and `docs/ARCHIVAL_RELEASE_PLAN.md`.
+The v1.1.1 author-identified submission package is release ready. No GitHub remote, GitHub Release, archival DOI, or external verification is claimed. Exact publication and archive steps are in `docs/GITHUB_RELEASE_PLAN.md` and `docs/ARCHIVAL_RELEASE_PLAN.md`.
 
 ## Readiness
 
@@ -45,7 +45,7 @@ The internal package is complete under the M12 definition. External readiness re
 
 ## Remaining external-only tasks
 
-1. Supply verified author name, affiliation, ORCID, and correspondence details.
+1. Supply verified affiliation, ORCID, correspondence email, funding statement, and conflict declaration.
 2. Obtain external theorem review and independent reproduction.
 3. Create the verified public repository and release.
 4. Deposit the archival package and record the actual DOI.

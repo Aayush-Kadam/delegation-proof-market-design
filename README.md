@@ -1,5 +1,7 @@
 # Delegation-Proof Market Design
 
+**Aayush Kadam**
+
 **Research question.** What happens to standard auction rankings when bidders delegate repeated bidding decisions to adaptive algorithms?
 
 **Main result.** Across prospectively frozen finite-horizon studies, first-price auctions tend to protect seller revenue while second-price auctions tend to protect efficient allocation and welfare. The pattern survives Hedge, FTPL, regret matching, and ordered heterogeneous learner pairs, although heterogeneous high-valuation cells include 29 revenue-ranking reversals. Exact Hedge results explain the conflict on finite-action parameter regions. Two natural mechanism repairs fail unchanged prospective gates, and a scoped certificate proves incompatible constant-hybrid safety requirements in one explicit environment.
@@ -8,6 +10,7 @@ No successful delegation-proof mechanism, universal impossibility, heterogeneous
 
 ## Paper and evidence
 
+- Public repository: https://github.com/Aayush-Kadam/delegation-proof-market-design
 - Manuscript: `paper/delegation-proof-market-design.pdf`
 - Claim registry: `docs/FINAL_CLAIM_REGISTRY.md`
 - Result index: `RESULTS_INDEX.md`
@@ -49,7 +52,7 @@ Tier 1 verifies software and theorem certificates; Tier 2 regenerates paper tabl
 
 ## Citation
 
-Use `CITATION.cff`. Author affiliation, ORCID, and correspondence details remain explicit placeholders until verified.
+Suggested citation: **Aayush Kadam. _Delegation-Proof Market Design: Revenue–Allocation Tradeoffs under Adaptive Bidding_, v1.1.1.** Use `CITATION.cff` for machine-readable metadata. Affiliation, ORCID, and correspondence details remain explicit placeholders until verified.
 
 ## License and boundaries
 

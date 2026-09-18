@@ -1,0 +1,11 @@
+{
+  "title": "Delegation-Proof Market Design: Revenue-Allocation Tradeoffs under Adaptive Bidding",
+  "upload_type": "software",
+  "version": "v1.1.1",
+  "creators": [{"name": "Kadam, Aayush"}],
+  "description": "Research code, compact evidence, certificates, and manuscript for a finite-horizon study of revenue-allocation tradeoffs under adaptive auction bidding.",
+  "keywords": ["repeated auctions", "adaptive bidding", "no-regret learning", "first-price auction", "second-price auction", "mechanism robustness"],
+  "license": "MIT",
+  "related_identifiers": [{"identifier": "https://github.com/Aayush-Kadam/delegation-proof-market-design", "relation": "isSupplementTo", "scheme": "url"}],
+  "notes": "No DOI has been issued. Affiliation, ORCID, and correspondence metadata remain unverified."
+}
