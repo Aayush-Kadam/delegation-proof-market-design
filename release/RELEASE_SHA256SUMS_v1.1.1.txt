@@ -1,0 +1,6 @@
+6341efcd10d1d4d8f9eafdb75fa8e8cbc59aef2e4cc629a8c9b5b79d20dc1040  paper/delegation-proof-market-design.pdf
+fd3e00f2ebe3648ace41e2d100b4bcfffc70f5080ec764f2701bf872e0092c3b  release/delegation-proof-market-design-source-v1.1.1.zip
+2953cf7f6eea1649bebcc58c2a86dda73cf20928105f1dcf94d972e377c46e84  release/delegation-proof-market-design-compact-data-v1.1.1.zip
+d9fc7e350a00623968f9b919610b6f17ee1a69b54a18592cea9abfe7bd7add7e  release/SHA256SUMS.txt
+a655ec8d9fd6a61b97948c63b3c4ef1166094fefaa6966cf7c4cb8dc49eacbba  preprint/arxiv/source-v1.1.1.zip
+571314d4d9bc1e48998e83a56e8086c8da32984a00590df24d0f1b12a5f120c1  submission/acm-teac/anonymous-manuscript.pdf
