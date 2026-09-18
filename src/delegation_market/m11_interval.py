@@ -58,7 +58,7 @@ def run(alpha):
   lh=[da(lh[i],dm(C(4),euh[i]))for i in range(4)];ll=ll  # eta_L=0
  return dm(sr,C(D(1)/D(9))),dm(sa,C(D(1)/D(9)))
 
-def certify(output:Path,parts=200):
+def certify(output:Path,parts=10_000):
  deriv=[]
  for k in range(parts):
   lo=D(k)/D(parts);hi=D(k+1)/D(parts);r,a=run(V((lo,hi)));deriv.append((r[1],a[1]))

@@ -1,9 +1,14 @@
 import json
+import inspect
 from pathlib import Path
 import numpy as np
 from delegation_market.m11_theory import matrices,run,derivative
 from delegation_market.m8_theory import run as endpoint_run
 from delegation_market.m11_interval import certify
+
+
+def test_interval_certificate_default_uses_10000_subintervals():
+    assert inspect.signature(certify).parameters["parts"].default == 10_000
 
 
 def test_generic_alpha_endpoints_match_m8():
