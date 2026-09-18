@@ -25,4 +25,6 @@
 | Citation audit | PASS WITH AUTHOR METADATA BLOCKER |
 | TEAC submission package | PASS WITH AUTHOR METADATA BLOCKER |
 
+The Docker recipe was audited and Docker 29.7.2 was detected, but the local Docker Desktop Linux daemon was not running. The container image itself was therefore not built in this session. Tier-1 behavior was instead validated in the documented fresh virtual-environment clean room.
+
 No item in this audit constitutes independent external replication, peer review, or journal acceptance.
