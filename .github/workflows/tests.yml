@@ -14,4 +14,4 @@ jobs:
       - name: Build manuscript and checksums
         run: python scripts/build_release_artifacts.py
       - name: Source sanity
-        run: python -c "from pathlib import Path; p=Path('paper/manuscript.md').read_text(); assert '(1/3,4,0,9)' in p.replace(' ', ''); assert 'eta_L=.9' not in p"
+        run: python scripts/check_release_sanity.py
