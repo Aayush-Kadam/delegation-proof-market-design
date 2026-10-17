@@ -3,12 +3,17 @@ on: [push, pull_request]
 jobs:
   test:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: {python-version: '3.11'}
       - run: pip install -e '.[test]'
       - run: pytest -q
+      - name: Reviewer examples and deliberate rejections
+        run: python scripts/reviewer_check.py
+      - name: Recompute full 10000-part reviewer certificate
+        run: python scripts/reviewer_check.py --full
       - name: Quick theorem check
         run: python -c "from pathlib import Path; from delegation_market.m11_interval import certify; certify(Path('/tmp/m11-quick.json'), parts=50)"
       - name: Build manuscript and checksums
